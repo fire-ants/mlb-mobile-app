@@ -5,15 +5,21 @@ export const searchedHitters = createReducer({}, {
     [types.SET_SEARCHED_HITTERS](state, action) {
         let newState = {};
         action.hitters.forEach((hitter) => {
-           //newState[hitter.mlbid] = hitter
-                 //Sample Data Display in View
-                 let id = hitter.mlbid
-                 //Our Data Display in View
-                 //let id = hitter.mlbid
-                 newState[id] = Object.assign({}, hitter, { id });
+          let id = hitter.mlbid;
+          newState[id] = Object.assign({}, hitter, { id });
         });
         return newState;
     }
+});
+
+export const searchedHitter = createReducer({}, {
+  [types.SET_SEARCHED_HITTER](state, action) {
+    let newState = {};
+    let id = action.hitter.mlbid;
+
+    newState[action.hitter.mlbid] = Object.assign({}, action.hitter, { id });
+    return newState;
+  }
 });
 
 export const hitterCount = createReducer(0, {

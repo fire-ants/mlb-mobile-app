@@ -1,4 +1,5 @@
 export const SET_SEARCHED_HITTERS = 'SET_SEARCHED_HITTERS';
+export const SET_SEARCHED_HITTER = 'SET_SEARCHED_HITTER';
 export const ADD_HITTER = 'ADD_HITTER';
 
 //Navigation
