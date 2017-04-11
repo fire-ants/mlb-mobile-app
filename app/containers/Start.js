@@ -23,21 +23,45 @@ const imageHeight = window.width/3;
 
     constructor(props){
         super(props);
-        this.state = { searching: false, hittersInput:''}
-    }
-    searchPressed() {
-        //Sample Data Query Open Search
-       this.setState({searching: true});
-       this.props.fetchHitters(this.state.hittersInput).then(() => {
-       this.setState({searching: false})
-       });
-       //Our Data Query Explicit
-       //this.props.fetchHitters('')
+
+        this.state = {
+          searching: false,
+          hittersInput:''
+        }
     }
 
-hitters() {
-       // return Object.keys(this.props.searchedHitters).map(key => this.props.searchedHitters[key])
-       return Object.keys(this.props.searchedHitters).map(key => this.props.searchedHitters[key])
+    componentWillMount() {
+      this.setState({searching: true});
+      this.props.fetchHitters(this.state.hittersInput).then(() => {
+        this.setState({searching: false})
+      });
+    }
+
+    searchPressed() {
+      this.setState({searching: true});
+      this.props.fetchHitters(this.state.hittersInput).then(() => {
+        this.setState({searching: false})
+      });
+    }
+
+    hitters() {
+      const players = this.props.searchedHitters
+      const select = {};
+
+      select[514888] = players[514888];
+      select[518626] = players[518626];
+      select[502671] = players[502671];
+      select[471865] = players[471865];
+      select[547180] = players[547180];
+      select[518934] = players[518934];
+      // select[457605] = players[457605];
+      select[502517] = players[502517];
+      select[120074] = players[120074];
+      select[445988] = players[445988];
+      // select[467092] = players[467092];
+      // select[545360] = players[545360];
+
+      return Object.keys(select).map(key => select[key]);
     }
 
     render() {
