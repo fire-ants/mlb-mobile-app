@@ -81,13 +81,12 @@ const imageHeight = window.width/3;
             <ScrollView contentContainerStyle={styles.container}>
                 {!this.state.searching && this.hitters().map((hitter) => {
                     return <TouchableHighlight key={hitter.id}  style={styles.searchButton} onPress={ () => this.props.replace({ key: 'Detail', id: hitter.id}) }>
-                    <View key={hitter.id} style={styles.child}>
-                    {/*Sample Data View Field*/}
-                    <Image source={ { uri: 'http://mlb.mlb.com/mlb/images/players/head_shot/'+hitter.mlbid+'.jpg' } } style={styles.image} />
-                    <Text style={styles.text} >{hitter.firstName} {hitter.lastName} | </Text>
-                    {/*Our Data View Field*/}
-                    {/*<Text>{hitter.mlbid}</Text>*/}
-                    </View>
+                      <View key={hitter.id} style={styles.child}>
+                        <Image
+                          source={{uri: `http://mlb.mlb.com/mlb/images/players/head_shot/${hitter.mlbid}.jpg`}} 
+                          style={styles.image} />
+                          <Text style={styles.text} >{hitter.firstName} {hitter.lastName} | </Text>
+                      </View>
                     </TouchableHighlight>
                 })}
                 {this.state.searching ? <Text style={styles.searching}>Searching...</Text> : null}
