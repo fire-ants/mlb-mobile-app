@@ -4,6 +4,7 @@ import Api from '../lib/api'
 export function fetchHitters(name) {
   return (dispatch, getState) => {
     const params = [
+      `limit=10000`,
     //  `name=${encodeURIComponent(name)}`,
     ].join('&');
 
