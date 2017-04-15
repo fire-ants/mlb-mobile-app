@@ -90,6 +90,7 @@ const imageHeight = window.width/3;
                  <Text style={styles.searchbutton}>Search Hitters</Text>
                </TouchableHighlight>
             </View>*/}
+            <Text style={styles.topBarText}>Select a batter to evaluate from below: </Text>
             <ScrollView contentContainerStyle={styles.container}>
                 {!this.state.searching && this.hitters().map((hitter) => {
                     return <TouchableHighlight key={hitter.id}  style={styles.searchButton} onPress={ () => this.props.navigate({key:'Detail', id: hitter.id})}>
@@ -172,6 +173,13 @@ const imageHeight = window.width/3;
             backgroundColor: '#ffaa00',
             color: '#fff',
             padding: 5
+          },
+          topBarText: {
+            color:'#fff',
+            backgroundColor: '#000',
+            height:30,
+            paddingLeft: 15,
+            paddingTop: 3
           }
         });
 

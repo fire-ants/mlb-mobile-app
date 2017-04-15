@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 	cardContainer: {
 		flex: 1,
 		position: 'absolute',
-		top: 203,
+		top: 207,
 		/*right: 16,
 		left: 16,*/
 		flexDirection: 'row'
