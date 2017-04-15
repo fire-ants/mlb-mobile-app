@@ -1,12 +1,13 @@
 //import { View, TabBarIOS, TabBarItemIOS } from 'react-native';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { connect, Provider } from 'react-redux';
 import { ActionCreators } from '../../actions';
 import Home from '../Home';
+import Start from '../Start';
 import About from '../About';
-//import {TabViewAnimated, TabBar} from 'react-native-tab-view';
+import TabNavigator from 'react-native-tab-navigator';
 
 class ApplicationTabs extends Component {
 
@@ -27,27 +28,8 @@ class ApplicationTabs extends Component {
     );
   }
 
- render() {
-  return (
-   <TabBarIOS style={{flex: 1}} >
-        <TabBarIOS.Item
-         systemIcon="favorites"
-          iconSize={25}
-          onPress={() => { return this.onPress(0) } }
-          selectedIconName="favorites"
-          selected={this.props.tabs.index === 0}>
-            { this.renderScene(Home) }
-        </TabBarIOS.Item>
-        <TabBarIOS.Item
-         systemIcon="more"
-          iconSize={25}
-          onPress={() => { return this.onPress(1) } }
-          selectedIconName="more"
-          selected={this.props.tabs.index === 1}>
-            { this.renderScene(About) }
-        </TabBarIOS.Item>
-      </TabBarIOS>
-   );
+ render () {
+   return (<TabNavigator>{ this.renderScene(Start) }</TabNavigator>);
  }
 }
 

@@ -1,9 +1,15 @@
 import React, {Component} from 'react'
 import ReactNative from 'react-native'
 import {connect} from 'react-redux'
-import { appStyle } from '../styles';
+import { appStyle } from '../styles'
+//import {StackNavigator} from 'react-navigation'
+import { bindActionCreators } from 'redux';
+import { ActionCreators } from '../actions';
+import Home from './Home';
+import About from './About';
 
 const {
+    ActivityIndicator,
     AppRegistry,
     Dimensions,
     ScrollView,
@@ -20,13 +26,17 @@ const imageWidth = (window.width/3)+30;
 const imageHeight = window.width/3;
 
  class Start extends Component {
-
+   static navigationOptions = {
+     title: 'Start',
+   };
     constructor(props){
         super(props);
 
         this.state = {
           searching: false,
           hittersInput:''
+          //added for redux nav variables
+
         }
     }
 
@@ -66,8 +76,10 @@ const imageHeight = window.width/3;
 
     render() {
         console.log(this.hitters());
-        return <Image source={require('../images/black-woven-background.jpg')} style={styles.scene}>
-           <View style={styles.searchSection}>
+        console.log('NavigateInfo__' + this.props)
+        return (
+           <Image source={require('../images/black-woven-background.jpg')} style={styles.scene}>
+           {/*}<View style={styles.searchSection}>
            <TextInput style={styles.searchinput}
             returnKeyType="search"
             placeholder="Enter Hitter to Search"
@@ -77,21 +89,22 @@ const imageHeight = window.width/3;
                <TouchableHighlight onPress={ () => this.searchPressed()}>
                  <Text style={styles.searchbutton}>Search Hitters</Text>
                </TouchableHighlight>
-            </View>
+            </View>*/}
             <ScrollView contentContainerStyle={styles.container}>
                 {!this.state.searching && this.hitters().map((hitter) => {
-                    return <TouchableHighlight key={hitter.id}  style={styles.searchButton} onPress={ () => this.props.replace({ key: 'Detail', id: hitter.id}) }>
+                    return <TouchableHighlight key={hitter.id}  style={styles.searchButton} onPress={ () => this.props.navigate({key:'Detail', id: hitter.id})}>
                       <View key={hitter.id} style={styles.child}>
                         <Image
-                          source={{uri: `http://mlb.mlb.com/mlb/images/players/head_shot/${hitter.mlbid}.jpg`}} 
+                          source={{uri: `http://mlb.mlb.com/mlb/images/players/head_shot/${hitter.mlbid}.jpg`}}
                           style={styles.image} />
                           <Text style={styles.text} >{hitter.firstName} {hitter.lastName} | </Text>
                       </View>
                     </TouchableHighlight>
                 })}
-                {this.state.searching ? <Text style={styles.searching}>Searching...</Text> : null}
+                {this.state.searching ? <ActivityIndicator size='large' color='#ffaa00' /> : null}
             </ScrollView>
         </Image>
+      );
     }
 }
 
@@ -106,7 +119,8 @@ const imageHeight = window.width/3;
               /*borderBottomColor: '#000',*/
               borderBottomWidth: 1,
               /*padding: 2,*/
-              width: window.width
+              width: window.width,
+              opacity: 0
             },
             container: {
             flexDirection: 'row',
@@ -163,7 +177,13 @@ const imageHeight = window.width/3;
 
 function mapStateToProps(state) {
     return {
-        searchedHitters: state.searchedHitters
-    }
+        searchedHitters: state.searchedHitters,
+        navigationState: state.navigationState
+          }
 }
-export default connect(mapStateToProps)(Start);
+
+//Added to carry forward additional state items
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(ActionCreators, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Start);
