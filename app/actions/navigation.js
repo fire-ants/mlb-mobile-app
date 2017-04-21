@@ -1,6 +1,6 @@
 import * as types from './types'
 import ReactNative from 'react-native'
-const { NavigationExperimental } =  ReactNative
+const { NavigationExperimental, NavigationActions } =  ReactNative
 const { jumpToIndex } = NavigationExperimental.StateUtils;
 
 export function setTab(tabIndex) {
@@ -30,4 +30,3 @@ export function navigateBack() {
     })
   }
 }
-

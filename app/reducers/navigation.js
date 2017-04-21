@@ -2,8 +2,10 @@ import ReactNative from 'react-native';
 const { NavigationExperimental, StatusBar} = ReactNative;
 import * as types from '../actions/types'
 import createReducer from '../lib/createReducer'
-import ApplicationTabs from '../containers/ApplicationTabs'
+//import ApplicationTabs from '../containers/ApplicationTabs'
 import Detail from '../containers/Detail'
+import Start from '../containers/Start'
+import Test1 from '../containers/Test1'
 
 const {
  CardStack: NavigationCardStack,
@@ -11,8 +13,12 @@ const {
 } = NavigationExperimental
 
 const allTabs = [
-  (lastRoute) => lastRoute || Object.assign({ key: 'home', index: 0 }),
-  (lastRoute) => lastRoute || Object.assign({ key: 'about', index: 1 }),
+  //(lastRoute) => lastRoute || Object.assign({ key: 'Test3', index: 2 }),
+  //(lastRoute) => lastRoute || Object.assign({ key: 'Test4', index: 3 }),
+  (lastRoute) => lastRoute || Object.assign({ key: 'LHPitch', index: 6 }),
+  (lastRoute) => lastRoute || Object.assign({ key: 'RHPitch', index: 7 }),
+
+  //(lastRoute) => lastRoute || Object.assign({ key: 'home', index: 2}),
 ];
 
 export const tabs = createReducer({ index: 0, key: 'home', routes: allTabs }, {
@@ -23,8 +29,15 @@ export const tabs = createReducer({ index: 0, key: 'home', routes: allTabs }, {
 
 export const navigationState = createReducer({ index: 0,
     routes: [
-      { key: 'ApplicationTabs',  },
-      { key: 'Detail' },
+      { key: 'Start', },
+      { key: 'Detail', },
+      { key: 'Test1', },
+      { key: 'Test2', },
+      { key: 'Test3', },
+      { key: 'Test4', },
+      { key: 'LHPitch', },
+      { key: 'RHPitch' }
+      //{ key: 'Detail' },
     ]
   }, {
 
