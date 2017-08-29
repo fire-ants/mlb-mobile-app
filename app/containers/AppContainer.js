@@ -17,10 +17,6 @@ import {
 import Home from './Home'
 import Start from './Start'
 import Detail from './Detail'
-import Test1 from './Test1'
-import Test2 from './Test2'
-import Test3 from './Test3'
-import Test4 from './Test4'
 import LHPitch from './LHPitch'
 import RHPitch from './RHPitch'
 
@@ -90,12 +86,8 @@ import RHPitch from './RHPitch'
         NavigationPagerStyleInterpolator.forHorizontal(this.props),
       ];
       let Scene = null;
-      if (this.props.scene.route.key === 'Test1') { Scene = Test1 }
       if (this.props.scene.route.key === 'Start') { Scene = Start }
       if (this.props.scene.route.key === 'Detail') { Scene = Detail }
-      if (this.props.scene.route.key === 'Test2') { Scene = Test2 }
-      if (this.props.scene.route.key === 'Test3') { Scene = Test3 }
-      if (this.props.scene.route.key === 'Test4') { Scene = Test4 }
       if (this.props.scene.route.key === 'LHPitch') { Scene =  LHPitch }
       if (this.props.scene.route.key === 'RHPitch') { Scene = RHPitch }
 

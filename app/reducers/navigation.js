@@ -5,7 +5,6 @@ import createReducer from '../lib/createReducer'
 //import ApplicationTabs from '../containers/ApplicationTabs'
 import Detail from '../containers/Detail'
 import Start from '../containers/Start'
-import Test1 from '../containers/Test1'
 
 const {
  CardStack: NavigationCardStack,
@@ -13,8 +12,6 @@ const {
 } = NavigationExperimental
 
 const allTabs = [
-  //(lastRoute) => lastRoute || Object.assign({ key: 'Test3', index: 2 }),
-  //(lastRoute) => lastRoute || Object.assign({ key: 'Test4', index: 3 }),
   (lastRoute) => lastRoute || Object.assign({ key: 'LHPitch', index: 6 }),
   (lastRoute) => lastRoute || Object.assign({ key: 'RHPitch', index: 7 }),
 
@@ -31,10 +28,6 @@ export const navigationState = createReducer({ index: 0,
     routes: [
       { key: 'Start', },
       { key: 'Detail', },
-      { key: 'Test1', },
-      { key: 'Test2', },
-      { key: 'Test3', },
-      { key: 'Test4', },
       { key: 'LHPitch', },
       { key: 'RHPitch' }
       //{ key: 'Detail' },
