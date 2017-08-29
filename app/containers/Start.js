@@ -59,17 +59,23 @@ const imageHeight = window.width/3;
       const select = {};
 
       select[514888] = players[514888];
-      select[518626] = players[518626];
-      select[502671] = players[502671];
-      select[471865] = players[471865];
+      select[453568] = players[453568];
+      select[457759] = players[457759];
+      select[519317] = players[519317];
+      select[458015] = players[458015];
       select[547180] = players[547180];
-      select[518934] = players[518934];
-      // select[457605] = players[457605];
+      // select[641355] = players[641355];
+      // select[592450] = players[592450];
+      select[545361] = players[545361];
+      select[457705] = players[457705];
+      select[502671] = players[502671];
+      select[518626] = players[518626];
       select[502517] = players[502517];
-      select[120074] = players[120074];
-      select[445988] = players[445988];
-      // select[467092] = players[467092];
-      // select[545360] = players[545360];
+      select[518934] = players[518934];
+      select[592178] = players[592178];
+      select[471865] = players[471865];
+      // select[519346] = players[519346];
+      select[460075] = players[460075];
 
       return Object.keys(select).map(key => select[key]);
     }
