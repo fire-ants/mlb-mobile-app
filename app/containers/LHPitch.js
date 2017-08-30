@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import { ActionCreators } from '../actions';
 import { bindActionCreators } from 'redux';
 import { appStyle } from '../styles';
+import ZoomImage from 'react-native-zoom-image';
+import PopoverTooltip from 'react-native-popover-tooltip';
 
 const {
     ActivityIndicator,
     AppRegistry,
     Dimensions,
+    Easing,
     ScrollView,
     View,
     Text,
@@ -41,17 +44,71 @@ class LHPitch extends Component {
     //console.log (`HERE: `+hitter.mlbid)
     return (
       <View style = {styles.container}>
-        <Text style = {styles.text}>FF </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <Text style = {styles.text}>CH </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <Text style = {styles.text}>SI </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <Text style = {styles.text}>CU </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <Text style = {styles.text}>SL </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-      </View>
+      <TouchableHighlight onPress={ () => this.props.navigate({key:'HVKey'})}>
+      <View style={{width: window.width}}><Text style={styles.hvalheader}>HitterVal Measurements
+      <Image source={require('../images/info-icon-63443.png')} style={styles.info} />
+      </Text></View></TouchableHighlight>
+        <View style={styles.child}>
+        <Text style = {styles.text}>FF </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-FF.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        <View style={styles.child}>
+        <Text style = {styles.text}>CH </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CH.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        <View style={styles.child}>
+        <Text style = {styles.text}>SI </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SI.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        <View style={styles.child}>
+        <Text style = {styles.text}>CU </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CU.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        <View style={styles.child}>
+        <Text style = {styles.text}>SL </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SL.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        </View>
+
+        // <View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <Text style = {styles.text}>CH </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <Text style = {styles.text}>SI </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <Text style = {styles.text}>CU </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <Text style = {styles.text}>SL </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
     )
   }
 }
@@ -86,6 +143,19 @@ const styles = StyleSheet.create({
     hmImage: {
       width: imageWidth,
       height: imageHeight
+    },
+    hvalheader: {
+      color:'#fff',
+      textAlign: 'center',
+      backgroundColor: '#ffaa00'
+      // justifyContent: 'center',
+      // alignItems: 'center'
+    },
+    info: {
+      width: 95,
+      height: 95,
+      alignItems: 'center',
+      justifyContent: 'center',
     }
 });
 

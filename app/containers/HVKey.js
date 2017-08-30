@@ -20,7 +20,7 @@ import LHPitch from './LHPitch'
 import RHPitch from './RHPitch'
 import styles from './styles/Hitter';
 
-class Detail extends Component {
+class HVKey extends Component {
 
   constructor(props) {
     super(props);
@@ -103,47 +103,46 @@ class Detail extends Component {
     if (!hitter) { return null }
 
     return (
-
-    <ScrollView
-    style={styles.container}
-    //onScroll={this._onScroll.bind(this)}
-    scrollEventThrottle={100}
-    onContentSizeChange={this._onContentSizeChange}
-    // refreshControl={
-    //   <RefreshControl
-    //     refreshing={this.state.isRefreshing}
-    //     onRefresh={this._onRefresh}
-    //     colors={['#EA0000']}
-    //     tintColor="white"
-    //     title="loading..."
-    //     titleColor="white"
-    //     progressBackgroundColor="white"
-    //   /> }
-    >
-      <View style={{ height }}>
-        <TouchableHighlight style={ { paddingVertical: 10, paddingHorizontal:10, backgroundColor: '#ffaa00' } } onPress={ () => { this.props.navigateBack() } }>
-        <Text style={{ color: '#fff'}}><Image source={require('../images/backbutton.png')} style={styles.info} />  Return to Hitters List</Text>
-        </TouchableHighlight>
-        <View style={{backgroundColor: '#000', marginTop:4}}>
-          <Image source={ { uri: 'http://mlb.mlb.com/mlb/images/players/head_shot/'+hitter.mlbid+'.jpg' } } style={appStyle.resultImage} />
-          <Text style={appStyle.resultText} >{hitter.firstName} {hitter.lastName} | </Text>
+      <ScrollView
+      style={styles.container}
+      //onScroll={this._onScroll.bind(this)}
+      scrollEventThrottle={100}
+      onContentSizeChange={this._onContentSizeChange}
+      // refreshControl={
+      //   <RefreshControl
+      //     refreshing={this.state.isRefreshing}
+      //     onRefresh={this._onRefresh}
+      //     colors={['#EA0000']}
+      //     tintColor="white"
+      //     title="loading..."
+      //     titleColor="white"
+      //     progressBackgroundColor="white"
+      //   /> }
+      >
+        <View style={{ height }}>
+          <TouchableHighlight style={ { paddingVertical: 10, paddingHorizontal:10, backgroundColor: '#ffaa00' } } onPress={ () => { this.props.navigateBack() } }>
+          <Text style={{ color: '#fff'}}><Image source={require('../images/backbutton.png')} style={styles.info} />  Return to Hitters List</Text>
+          </TouchableHighlight>
+          <View style={{backgroundColor: '#000', marginTop:4}}>
+            <Image source={ { uri: 'http://mlb.mlb.com/mlb/images/players/head_shot/'+hitter.mlbid+'.jpg' } } style={appStyle.resultImage} />
+            <Text style={appStyle.resultText} >{hitter.firstName} {hitter.lastName} | </Text>
+          </View>
+        <View style={styles.contentContainer}>
+        <ScrollableTabView
+          onChangeTab={this._onChangeTab}
+          renderTabBar={() => (
+            <DefaultTabBar
+              textStyle={styles.textStyle}
+              underlineStyle={styles.underlineStyle}
+              style={styles.tabBar}
+            />
+          )}>
+          <LHPitch tabLabel="Left Handed Pitcher" info={info} />
+          <RHPitch tabLabel="Right Handed Pitcther" info={info} getTabHeight={this._getTabHeight} />
+        </ScrollableTabView>
         </View>
-      <View style={styles.contentContainer}>
-      <ScrollableTabView
-        onChangeTab={this._onChangeTab}
-        renderTabBar={() => (
-          <DefaultTabBar
-            textStyle={styles.textStyle}
-            underlineStyle={styles.underlineStyle}
-            style={styles.tabBar}
-          />
-        )}>
-        <LHPitch tabLabel="Left Handed Pitcher" info={info} />
-        <RHPitch tabLabel="Right Handed Pitcther" info={info} getTabHeight={this._getTabHeight} />
-      </ScrollableTabView>
       </View>
-    </View>
-  </ScrollView>
+    </ScrollView>
     );
   }
 }
@@ -161,4 +160,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Detail);
+export default connect(mapStateToProps, mapDispatchToProps)(HVKey);

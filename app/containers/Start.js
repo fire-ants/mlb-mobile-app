@@ -96,7 +96,10 @@ const imageHeight = window.width/3;
                  <Text style={styles.searchbutton}>Search Hitters</Text>
                </TouchableHighlight>
             </View>*/}
-            <Text style={styles.topBarText}>Select a batter to evaluate from below: </Text>
+            <Text style={styles.topHeaderText}>Pitcher's Friend
+            <Image source={require('../images/info-icon-63443.png')} style={styles.info} />
+            </Text>
+            <Text style={styles.topBarText}>Select a hitter to evaluate below:</Text>
             <ScrollView contentContainerStyle={styles.container}>
                 {!this.state.searching && this.hitters().map((hitter) => {
                     return <TouchableHighlight key={hitter.id}  style={styles.searchButton} onPress={ () => this.props.navigate({key:'Detail', id: hitter.id})}>
@@ -108,7 +111,7 @@ const imageHeight = window.width/3;
                       </View>
                     </TouchableHighlight>
                 })}
-                {this.state.searching ? <ActivityIndicator size='large' color='#ffaa00' /> : null}
+                {this.state.searching ? <ActivityIndicator size='large' color='#ffaa00' contentContainerStylestyle={styles.activityindicator} /> : null}
             </ScrollView>
         </Image>
       );
@@ -154,14 +157,15 @@ const imageHeight = window.width/3;
             height: imageHeight
           },
           text: {
+            flex: 1,
             width: imageWidth,
             backgroundColor: '#ffaa00',
-            color: '#000',
-            padding: 2,
-            justifyContent: 'flex-end',
+            color: '#fff',
+            padding: 5,
+            justifyContent: 'center',
             fontWeight: 'bold',
-            height: 55,
-            alignItems: 'center'
+            height: 35,
+            alignItems: 'center',
           },
           searchinput: {
             backgroundColor: '#fff',
@@ -181,12 +185,36 @@ const imageHeight = window.width/3;
             padding: 5
           },
           topBarText: {
-            color:'#fff',
+            color:'#ffaa00',
+            fontWeight: 'bold',
             backgroundColor: '#000',
-            height:30,
+            height: 20,
+            width: window.width,
             paddingLeft: 15,
-            paddingTop: 3
-          }
+          },
+          activityindicator: {
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: 400
+            // position: 'absolute',
+            // //marginTop: 157,
+            // height: 50
+          },
+          topHeaderText: {
+            color:'#fff',
+            fontSize: 20,
+            fontWeight: 'bold',
+            backgroundColor: '#ffaa00',
+            height:50,
+            paddingLeft: 15,
+            paddingTop: 10,
+          },
+        info: {
+          width: 95,
+          height: 95,
+          marginLeft: 100
+        }
         });
 
 function mapStateToProps(state) {

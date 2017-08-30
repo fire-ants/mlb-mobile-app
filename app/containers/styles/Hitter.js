@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
 	},
 	container: {
 		backgroundColor: '#0a0a0a',
-		paddingTop: 5,
-		paddingHorizontal: 2
+		//paddingTop: 5,
+		//paddingHorizontal: 2
 	},
 	swiper: {
 		// position: 'absolute',
@@ -97,6 +97,11 @@ const styles = StyleSheet.create({
 	cardRunningHours: {
 		marginLeft: 5,
 		fontSize: 12
+	},
+	info: {
+		width: 65,
+		height: 65,
+		paddingHorizontal: 30
 	}
 });
 

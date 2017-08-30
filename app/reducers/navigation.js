@@ -29,7 +29,8 @@ export const navigationState = createReducer({ index: 0,
       { key: 'Start', },
       { key: 'Detail', },
       { key: 'LHPitch', },
-      { key: 'RHPitch' }
+      { key: 'RHPitch' },
+      { key: 'HVKey'}
       //{ key: 'Detail' },
     ]
   }, {
