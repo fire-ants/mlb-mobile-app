@@ -6,6 +6,8 @@ import { appStyle } from '../styles';
 import {
   View,
   Image,
+  RefreshControl,
+  ScrollView,
   TouchableHighlight,
   Text,
   StyleSheet,
@@ -31,25 +33,59 @@ class Detail extends Component {
 
   this._getTabHeight = this._getTabHeight.bind(this);
   this._onChangeTab = this._onChangeTab.bind(this);
+  this._onContentSizeChange = this._onContentSizeChange.bind(this);
+  this._onRefresh = this._onRefresh.bind(this);
+  this._onScroll = this._onScroll.bind(this);
+  //this.props.navigator.setOnNavigatorEvent(this._onNavigatorEvent.bind(this));
+
 }
 
   hitter() {
       return this.props.searchedHitters[this.props.navigationParams.id] || null;
     }
 
-    _onChangeTab({ i, ref }) {
+  _onRefresh() {
+  		this.setState({ isRefreshing: true });
+  		this._retrieveDetails('isRefreshed');
+  	}
+
+  _onScroll(event) {
+  		const contentOffsetY = event.nativeEvent.contentOffset.y.toFixed();
+  		if (contentOffsetY > 150) {
+  			this._toggleNavbar('hidden');
+  		} else {
+  			this._toggleNavbar('shown');
+  		}
+  	}
+
+  _toggleNavbar(status) {
+  		this.props.navigator.toggleNavBar({
+  			to: status,
+  			animated: true
+  		});
+  	}
+
+  _onChangeTab({ i, ref }) {
   this.setState({ tab: i });
   }
 
   _onContentSizeChange(width, height) {
-		if (this.state.tab === 0 && this.state.infoTabHeight === this.state.lhpitchTabHeight) {
-			this.setState({ rhpitchTabHeight: height });
+		if (this.state.tab === 0 && this.state.lhpitchTabHeight === this.state.rhpitchTabHeight) {
+			this.setState({ lhpitchTabHeight: height });
 		}
 	}
 
   _getTabHeight(tabName, height) {
   if (tabName === 'lhpitch') this.setState({ lhpitchTabHeight: height });
   if (tabName === 'rhpitch') this.setState({ rhpitchTabHeight: height });
+}
+
+  _onNavigatorEvent(event) {
+  if (event.type === 'NavBarButtonPress') {
+    if (event.id === 'close') {
+      this.props.navigator.dismissModal();
+    }
+  }
 }
 
   render() {
@@ -67,7 +103,24 @@ class Detail extends Component {
     if (!hitter) { return null }
 
     return (
-      <View>
+
+    <ScrollView
+    style={styles.container}
+    //onScroll={this._onScroll.bind(this)}
+    scrollEventThrottle={100}
+    onContentSizeChange={this._onContentSizeChange}
+    // refreshControl={
+    //   <RefreshControl
+    //     refreshing={this.state.isRefreshing}
+    //     onRefresh={this._onRefresh}
+    //     colors={['#EA0000']}
+    //     tintColor="white"
+    //     title="loading..."
+    //     titleColor="white"
+    //     progressBackgroundColor="white"
+    //   /> }
+    >
+      <View style={{ height }}>
         <TouchableHighlight style={ { paddingVertical: 10, backgroundColor: '#222' } } onPress={ () => { this.props.navigateBack() } }>
           <Text style={{ color: '#fff' } }> Return to Hitters List</Text>
         </TouchableHighlight>
@@ -75,8 +128,7 @@ class Detail extends Component {
           <Image source={ { uri: 'http://mlb.mlb.com/mlb/images/players/head_shot/'+hitter.mlbid+'.jpg' } } style={appStyle.resultImage} />
           <Text style={appStyle.resultText} >{hitter.firstName} {hitter.lastName} | </Text>
         </View>
-
-      <View style={styles.cardContainer}>
+      <View style={styles.contentContainer}>
       <ScrollableTabView
         onChangeTab={this._onChangeTab}
         renderTabBar={() => (
@@ -89,8 +141,9 @@ class Detail extends Component {
         <LHPitch tabLabel="Left Handed Pitcher" info={info} />
         <RHPitch tabLabel="Right Handed Pitcther" info={info} getTabHeight={this._getTabHeight} />
       </ScrollableTabView>
+      </View>
     </View>
-  </View>
+  </ScrollView>
     );
   }
 }

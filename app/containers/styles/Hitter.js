@@ -13,10 +13,6 @@ const styles = StyleSheet.create({
 	tabBar: {
 		backgroundColor: '#131313'
 	},
-	contentContainer: {
-		/*flex: 1,*/
-		/*marginTop: 60*/
-	},
 	progressBar: {
 		backgroundColor: '#0a0a0a',
 		flex: 1,
@@ -24,7 +20,9 @@ const styles = StyleSheet.create({
 		alignItems: 'center'
 	},
 	container: {
-		backgroundColor: '#0a0a0a'
+		backgroundColor: '#0a0a0a',
+		paddingTop: 5,
+		paddingHorizontal: 2
 	},
 	swiper: {
 		// position: 'absolute',
@@ -50,6 +48,11 @@ const styles = StyleSheet.create({
 		left: 16,*/
 		flexDirection: 'row'
 	},
+	contentContainer: {
+	flex: 1,
+	//position: 'absolute',
+	//marginTop: 57
+},
 	cardImage: {
 		height: 184,
 		width: 135,

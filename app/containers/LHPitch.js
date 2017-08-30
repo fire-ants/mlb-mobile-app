@@ -19,8 +19,8 @@ const {
  } = ReactNative;
 
  const window = Dimensions.get('window');
- const imageWidth = (window.width/3)+30;
- const imageHeight = window.width/3;
+ const imageWidth = (window.width/3)+50;
+ const imageHeight = (window.width/3)+75;
 
 class LHPitch extends Component {
 
@@ -40,19 +40,17 @@ class LHPitch extends Component {
 
     //console.log (`HERE: `+hitter.mlbid)
     return (
-      <View style = {styles.scene}>
-      <ScrollView contentContainerStyle={styles.container}>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+      <View style = {styles.container}>
+        <Text style = {styles.text}>FF </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
         <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        <Text style = {styles.text}>CH </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
         <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        <Text style = {styles.text}>SI </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
         <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        <Text style = {styles.text}>CU </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
         <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        <Text style = {styles.text}>SL </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
         <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-      </ScrollView>
       </View>
     )
   }
@@ -68,15 +66,22 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     width: window.width,
     justifyContent: 'center',
-    alignItems: 'flex-end'
-  },
+    alignItems: 'flex-end',
+    marginBottom: 5
+    },
     child: {
       /*width: window.width*4,*/
       alignItems: 'flex-start',
       /*height: imageHeight+30,*/
       marginTop: 5,
-      marginLeft: 5,
-      padding: 2
+    //  marginLeft: 5,
+      paddingTop: 2,
+      paddingRight: 6,
+      paddingBottom: 2
+    },
+    text : {
+      color: '#fff',
+      paddingRight: 2
     },
     hmImage: {
       width: imageWidth,
