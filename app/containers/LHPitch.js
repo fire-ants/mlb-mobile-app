@@ -30,8 +30,9 @@ class LHPitch extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      index: 6,
-      order: 1 }
+      order: 1
+      //index: 6
+       }
   }
 
   hitter() {
@@ -56,8 +57,7 @@ class LHPitch extends Component {
       items={[
       {
         label: 'Touch the items below to see hitter performance data by pitch - FF=Four-Seam Fastball, CH=Changeup, SI=Sinker, CU=Curveball, SL=Slider ',
-        onPress: () => {
-        }
+        onPress: () => {}
       }
       ]}
       // animationType='timming'

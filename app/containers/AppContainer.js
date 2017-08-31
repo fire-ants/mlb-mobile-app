@@ -19,7 +19,6 @@ import Start from './Start'
 import Detail from './Detail'
 import LHPitch from './LHPitch'
 import RHPitch from './RHPitch'
-import HVKey from './HVKey'
 import Open from './Open'
 
 //retry peckish redux navstyle
@@ -93,7 +92,6 @@ import Open from './Open'
       if (this.props.scene.route.key === 'Detail') { Scene = Detail }
       if (this.props.scene.route.key === 'LHPitch') { Scene =  LHPitch }
       if (this.props.scene.route.key === 'RHPitch') { Scene = RHPitch }
-      if (this.props.scene.route.key === 'HVKey') { Scene = HVKey }
 
       return  (
         <Animated.View style={style}>

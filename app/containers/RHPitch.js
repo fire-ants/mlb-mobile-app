@@ -30,7 +30,7 @@ class LHPitch extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      index: 6,
+      //index: 6,
       order: 1 }
   }
 
@@ -47,7 +47,7 @@ class LHPitch extends Component {
     return (
       <View style = {styles.container}>
       <PopoverTooltip
-      ref='tooltip1'
+      ref='tooltip2'
       buttonComponent={
       <View style={{width: window.width, height:40}}><Text style={styles.hvalheader}>HitterVal Measurements
       <Image source={require('../images/info-icon-63443.png')} style={styles.info} />
