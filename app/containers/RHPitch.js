@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import { ActionCreators } from '../actions';
 import { bindActionCreators } from 'redux';
 import { appStyle } from '../styles';
+import ZoomImage from 'react-native-zoom-image';
+import PopoverTooltip from 'react-native-popover-tooltip';
 
 const {
     ActivityIndicator,
     AppRegistry,
     Dimensions,
+    Easing,
     ScrollView,
     View,
     Text,
@@ -22,11 +25,13 @@ const {
  const imageWidth = (window.width/3)+50;
  const imageHeight = (window.width/3)+75;
 
-class RHPitch extends Component {
+class LHPitch extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { index: 6 }
+    this.state = {
+      index: 6,
+      order: 1 }
   }
 
   hitter() {
@@ -41,17 +46,84 @@ class RHPitch extends Component {
     //console.log (`HERE: `+hitter.mlbid)
     return (
       <View style = {styles.container}>
-        <Text style = {styles.text}>FF </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hm-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <Text style = {styles.text}>CH </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hm-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <Text style = {styles.text}>SI </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hm-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <Text style = {styles.text}>CU </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hm-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <Text style = {styles.text}>SL </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hm-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-        <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
-      </View>
+      <PopoverTooltip
+      ref='tooltip1'
+      buttonComponent={
+      <View style={{width: window.width, height:40}}><Text style={styles.hvalheader}>HitterVal Measurements
+      <Image source={require('../images/info-icon-63443.png')} style={styles.info} />
+      </Text></View>
+      }
+      items={[
+      {
+        label: 'Touch the items below to see hitter performance data by pitch - FF=Four-Seam Fastball, CH=Changeup, SI=Sinker, CU=Curveball, SL=Slider ',
+        onPress: () => {
+        }
+      }
+      ]}
+      // animationType='timming'
+      // using the default timming animation
+      />
+        <View style={styles.child}>
+        <Text style = {styles.text}>FF </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-FF.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        <View style={styles.child}>
+        <Text style = {styles.text}>CH </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-CH.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        <View style={styles.child}>
+        <Text style = {styles.text}>SI </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-SI.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        <View style={styles.child}>
+        <Text style = {styles.text}>CU </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-CU.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        <View style={styles.child}>
+        <Text style = {styles.text}>SL </Text>
+        <ZoomImage
+          source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-rhp-hv-SL.png'} }
+          style={styles.hmImage}
+          imgStyle={styles.hmImage}
+          enableScaling={true}
+          easingFunc={Easing.bounce}
+          />
+        </View>
+        </View>
+
+        // <View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-FF.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <Text style = {styles.text}>CH </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CH.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <Text style = {styles.text}>SI </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SI.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <Text style = {styles.text}>CU </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-CU.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <Text style = {styles.text}>SL </Text><TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hm-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
+        // <TouchableHighlight><View style={styles.child}><Image source={ { uri: 'https://s3.amazonaws.com/mlb-pf/'+hitter.mlbid+'-lhp-hv-SL.png'} } style={styles.hmImage} /></View></TouchableHighlight>
     )
   }
 }
@@ -86,6 +158,22 @@ const styles = StyleSheet.create({
     hmImage: {
       width: imageWidth,
       height: imageHeight
+    },
+    hvalheader: {
+      color:'#000',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      //backgroundColor: '#ff8101',
+      backgroundColor: '#d3d3d3',
+      height: 40
+      // justifyContent: 'center',
+      // alignItems: 'center'
+    },
+    info: {
+      width: 95,
+      height: 95,
+      alignItems: 'center',
+      justifyContent: 'center',
     }
 });
 
@@ -100,4 +188,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RHPitch);
+export default connect(mapStateToProps, mapDispatchToProps)(LHPitch);

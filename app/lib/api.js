@@ -24,7 +24,8 @@ class Api {
   }
 
   static xhr(route, params, verb) {
-    const host = 'http://67.205.147.49'
+    const host = 'http://mlb-player-api.cfapps.io'
+    //const host = 'http://67.205.147.49'
     //const host = 'http://www.recipepuppy.com'
     const url = `${host}${route}`
     console.log(url)

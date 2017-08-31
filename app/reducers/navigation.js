@@ -5,6 +5,7 @@ import createReducer from '../lib/createReducer'
 //import ApplicationTabs from '../containers/ApplicationTabs'
 import Detail from '../containers/Detail'
 import Start from '../containers/Start'
+import Open from '../containers/Open'
 
 const {
  CardStack: NavigationCardStack,
@@ -26,6 +27,7 @@ export const tabs = createReducer({ index: 0, key: 'home', routes: allTabs }, {
 
 export const navigationState = createReducer({ index: 0,
     routes: [
+      { key: 'Open', },
       { key: 'Start', },
       { key: 'Detail', },
       { key: 'LHPitch', },

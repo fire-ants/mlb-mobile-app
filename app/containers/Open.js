@@ -5,8 +5,8 @@ import { appStyle } from '../styles'
 //import {StackNavigator} from 'react-navigation'
 import { bindActionCreators } from 'redux';
 import { ActionCreators } from '../actions';
-import Home from './Home';
-import About from './About';
+// import Home from './Home';
+// import About from './About';
 
 const {
     ActivityIndicator,
@@ -25,9 +25,9 @@ const window = Dimensions.get('window');
 const imageWidth = (window.width/3)+30;
 const imageHeight = window.width/3;
 
- class Start extends Component {
+ class Open extends Component {
    static navigationOptions = {
-     title: 'Start',
+     title: 'Open',
    };
     constructor(props){
         super(props);
@@ -36,55 +36,59 @@ const imageHeight = window.width/3;
           searching: false,
           hittersInput:''
           //added for redux nav variables
-
         }
     }
 
-    componentWillMount() {
+      async componentWillMount() {
       this.setState({searching: true});
-      this.props.fetchHitters(this.state.hittersInput).then(() => {
-        this.setState({searching: false})
-      });
+      setTimeout(() => this.props.navigate({key:'Start'}), 6000)
+      //this.setState({searching: false});
     }
-
-    searchPressed() {
-      this.setState({searching: true});
-      this.props.fetchHitters(this.state.hittersInput).then(() => {
-        this.setState({searching: false})
-      });
-    }
-
-    hitters() {
-      const players = this.props.searchedHitters
-      const select = {};
-
-      select[514888] = players[514888];
-      select[453568] = players[453568];
-      select[457759] = players[457759];
-      select[519317] = players[519317];
-      select[458015] = players[458015];
-      select[547180] = players[547180];
-      select[641355] = players[641355];
-      select[592450] = players[592450];
-      select[545361] = players[545361];
-      select[457705] = players[457705];
-      select[502671] = players[502671];
-      select[518626] = players[518626];
-      select[502517] = players[502517];
-      select[518934] = players[518934];
-      select[592178] = players[592178];
-      select[471865] = players[471865];
-      select[519346] = players[519346];
-      select[460075] = players[460075];
-
-      return Object.keys(select).map(key => select[key]);
-    }
+    // componentWillMount() {
+    //   this.setState({searching: true});
+    //   this.props.fetchHitters(this.state.hittersInput).then(() => {
+    //     this.setState({searching: false})
+    //   });
+    // }
+    //
+    // searchPressed() {
+    //   this.setState({searching: true});
+    //   this.props.fetchHitters(this.state.hittersInput).then(() => {
+    //     this.setState({searching: false})
+    //   });
+    // }
+    //
+    // hitters() {
+    //   const players = this.props.searchedHitters
+    //   const select = {};
+    //
+    //   select[514888] = players[514888];
+    //   select[453568] = players[453568];
+    //   select[457759] = players[457759];
+    //   select[519317] = players[519317];
+    //   select[458015] = players[458015];
+    //   select[547180] = players[547180];
+    //   select[641355] = players[641355];
+    //   select[592450] = players[592450];
+    //   select[545361] = players[545361];
+    //   select[457705] = players[457705];
+    //   select[502671] = players[502671];
+    //   select[518626] = players[518626];
+    //   select[502517] = players[502517];
+    //   select[518934] = players[518934];
+    //   select[592178] = players[592178];
+    //   select[471865] = players[471865];
+    //   select[519346] = players[519346];
+    //   select[460075] = players[460075];
+    //
+    //   return Object.keys(select).map(key => select[key]);
+    // }
 
     render() {
-        console.log(this.hitters());
-        console.log('NavigateInfo__' + this.props)
+        // console.log(this.hitters());
+        // console.log('NavigateInfo__' + this.props)
         return (
-           <Image source={require('../images/black-woven-background.jpg')} style={styles.scene}>
+          <View style={styles.faimageContainer}>
            {/*}<View style={styles.searchSection}>
            <TextInput style={styles.searchinput}
             returnKeyType="search"
@@ -96,25 +100,13 @@ const imageHeight = window.width/3;
                  <Text style={styles.searchbutton}>Search Hitters</Text>
                </TouchableHighlight>
             </View>*/}
-            <Text style={styles.topHeaderText}>Pitcher's Friend
-            <Image source={require('../images/info-icon-63443.png')} style={styles.info} />
-            </Text>
-            <Text style={styles.topBarText}>Select a hitter to evaluate:</Text>
-            <ScrollView contentContainerStyle={styles.container}>
-                {!this.state.searching && this.hitters().map((hitter) => {
-                    return <TouchableHighlight key={hitter.id}  style={styles.searchButton} onPress={ () => this.props.navigate({key:'Detail', id: hitter.id})} style={styles.imageBorder}>
-                      <View key={hitter.id} style={styles.child}>
-                        <Image
-                          source={{uri: `http://mlb.mlb.com/mlb/images/players/head_shot/${hitter.mlbid}.jpg`}}
-                          style={styles.image} />
-                          <Text style={styles.text} >{hitter.firstName} {hitter.lastName} | {hitter.position} </Text>
-                          <Text style={styles.teamtext}>{hitter.team}</Text>
-                      </View>
-                    </TouchableHighlight>
-                })}
-                {this.state.searching ? <ActivityIndicator size='large' color='#ff8101' contentContainerStylestyle={styles.activityindicator} /> : null}
-            </ScrollView>
-        </Image>
+            <Text style={styles.topHeaderText}>Welcome to the Pitchers Friend</Text>
+            <View>
+            <TouchableHighlight onPress={ () => this.props.navigate({key:'Start'})}><Image source={require('../images/fireants-med.jpg')} style={styles.faimage} resizeMode="contain" /></TouchableHighlight>
+            <Text style={{color:'#5d5d5d', textAlign:'center'}}> Copyright © 2017 All Rights Reserved. </Text>
+            {this.state.searching ? <ActivityIndicator size='large' color='#ff8101' /> : null}
+            </View>
+        </View>
       );
     }
 }
@@ -146,7 +138,7 @@ const imageHeight = window.width/3;
            alignItems: 'flex-end'
           },
           child: {
-            /*width: window.width/4,*/
+            /*width: window.width*4,*/
             alignItems: 'flex-start',
             /*height: imageHeight+30,*/
             marginTop: 5,
@@ -160,41 +152,27 @@ const imageHeight = window.width/3;
           text: {
             flex: 1,
             width: imageWidth,
-            //backgroundColor: '#ff8101',
-            backgroundColor: '#d3d3d3',
-            color: '#000',
+            backgroundColor: '#ff8101',
+            color: '#fff',
             padding: 5,
             justifyContent: 'center',
             fontWeight: 'bold',
             //height: 55,
             alignItems: 'center',
-            textAlign: 'center',
-            borderRightColor: '#ff8101',
-            borderLeftColor: '#ff8101',
-            borderTopWidth: 2,
-            borderTopColor: '#ff8101',
-            //borderLeftWidth: 1,
-            //borderRightWidth: 1,
+            textAlign: 'center'
           },
           teamtext: {
             flex: 1,
             width: imageWidth,
-            //backgroundColor: '#ff8101',
-            backgroundColor: '#d3d3d3',
-            color: '#000',
+            backgroundColor: '#ff8101',
+            color: '#fff',
             padding: 5,
             marginTop: -8,
             justifyContent: 'center',
             fontWeight: 'bold',
             height: 30,
             alignItems: 'center',
-            textAlign: 'center',
-            borderRightColor: '#ff8101',
-            borderLeftColor: '#ff8101',
-            //borderLeftWidth: 1,
-            //borderRightWidth: 1,
-            //borderBottomWidth: 1,
-            borderBottomColor: '#ff8101'
+            textAlign: 'center'
           },
           searchinput: {
             backgroundColor: '#fff',
@@ -214,13 +192,12 @@ const imageHeight = window.width/3;
             padding: 5
           },
           topBarText: {
-            //color:'#ff8101',
-            color:'#fff',
+            color:'#ff8101',
             fontWeight: 'bold',
             backgroundColor: '#000',
             height: 20,
             width: window.width,
-            paddingLeft: 10,
+            paddingLeft: 15,
           },
           activityindicator: {
             flex: 1,
@@ -232,30 +209,39 @@ const imageHeight = window.width/3;
             // height: 50
           },
           topHeaderText: {
-            color:'#fff',
+            color:'#5d5d5d',
             fontSize: 20,
             fontWeight: 'bold',
-            backgroundColor: '#ff8101',
-            height:50,
+            backgroundColor: '#fff',
+            //height:50,
             paddingLeft: 15,
             paddingTop: 10,
-            paddingRight: 5,
+            textAlign: 'center',
             width: window.width,
-            textAlign: 'center'
+            height:window.height/7
           },
         info: {
-          width: 90,
-          height: 90,
-          marginLeft: 100,
-          paddingLeft: 5
+          width: 95,
+          height: 95,
+          marginLeft: 100
         },
-        imageBorder: {
+        faimageContainer: {
+          marginTop: 100,
+          width: window.width,
+          height: window.height,
+          backgroundColor: '#fff'
+        },
+        faimage: {
+          width: window.width,
+          height: 200,
+          //justifyContent: 'center',
+          //alignItems: 'center'
         }
         });
 
 function mapStateToProps(state) {
     return {
-        searchedHitters: state.searchedHitters,
+        // searchedHitters: state.searchedHitters,
         navigationState: state.navigationState
           }
 }
@@ -264,4 +250,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Start);
+export default connect(mapStateToProps, mapDispatchToProps)(Open);

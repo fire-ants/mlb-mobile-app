@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold'
 	},
 	underlineStyle: {
-		backgroundColor: '#ffaa00'
+		backgroundColor: '#ff8101'
 	},
 	tabBar: {
 		backgroundColor: '#131313'
@@ -102,7 +102,22 @@ const styles = StyleSheet.create({
 		width: 65,
 		height: 65,
 		paddingHorizontal: 30
+	},
+	detailBox: {
+		flexDirection: 'row'
+	},
+	detailb1: {
+		flex:1,
+		backgroundColor: '#000',
+		marginTop:4,
+		//width:window.width/3
+	},
+	detailb2: {
+		flex:1,
+		marginTop: 25,
+		marginLeft: -65
 	}
+
 });
 
 export default styles;

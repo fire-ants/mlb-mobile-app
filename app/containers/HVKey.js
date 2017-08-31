@@ -120,7 +120,7 @@ class HVKey extends Component {
       //   /> }
       >
         <View style={{ height }}>
-          <TouchableHighlight style={ { paddingVertical: 10, paddingHorizontal:10, backgroundColor: '#ffaa00' } } onPress={ () => { this.props.navigateBack() } }>
+          <TouchableHighlight style={ { paddingVertical: 10, paddingHorizontal:10, backgroundColor: '#ff8101' } } onPress={ () => { this.props.navigateBack() } }>
           <Text style={{ color: '#fff'}}><Image source={require('../images/backbutton.png')} style={styles.info} />  Return to Hitters List</Text>
           </TouchableHighlight>
           <View style={{backgroundColor: '#000', marginTop:4}}>

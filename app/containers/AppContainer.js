@@ -20,6 +20,7 @@ import Detail from './Detail'
 import LHPitch from './LHPitch'
 import RHPitch from './RHPitch'
 import HVKey from './HVKey'
+import Open from './Open'
 
 //retry peckish redux navstyle
 //NavigationExperiemental will be deprecated as of React Native 0.43
@@ -87,6 +88,7 @@ import HVKey from './HVKey'
         NavigationPagerStyleInterpolator.forHorizontal(this.props),
       ];
       let Scene = null;
+      if (this.props.scene.route.key === 'Open') { Scene = Open }
       if (this.props.scene.route.key === 'Start') { Scene = Start }
       if (this.props.scene.route.key === 'Detail') { Scene = Detail }
       if (this.props.scene.route.key === 'LHPitch') { Scene =  LHPitch }

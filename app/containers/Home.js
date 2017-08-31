@@ -111,7 +111,7 @@ hitters() {
           },
           text: {
             width: imageWidth,
-            backgroundColor: '#ffaa00',
+            backgroundColor: '#ff8101',
             color: '#000',
             padding: 2,
             justifyContent: 'flex-end',
@@ -125,14 +125,14 @@ hitters() {
             padding: 5
           },
           searchbutton: {
-            backgroundColor: '#ffaa00',
+            backgroundColor: '#ff8101',
             color: '#000',
             flex: 0.4,
             padding: 10
           },
           searching: {
             width: window.width,
-            backgroundColor: '#ffaa00',
+            backgroundColor: '#ff8101',
             color: '#fff',
             padding: 5
           }

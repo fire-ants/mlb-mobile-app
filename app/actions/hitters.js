@@ -18,7 +18,7 @@ export function fetchHitters(name) {
 
 export function fetchHitter(mlbid) {
     return (dispatch, getState) => {;
-        return Api.get(`/player/mlbid/${mlbid}`).then(resp => {
+        return Api.get(`/player/${mlbid}`).then(resp => {
             dispatch(setSearchedHitter({hitter: resp}));
         }).catch( (ex) => {
             console.log(ex);

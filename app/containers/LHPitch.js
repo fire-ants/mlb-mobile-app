@@ -29,7 +29,9 @@ class LHPitch extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { index: 6 }
+    this.state = {
+      index: 6,
+      order: 1 }
   }
 
   hitter() {
@@ -44,10 +46,23 @@ class LHPitch extends Component {
     //console.log (`HERE: `+hitter.mlbid)
     return (
       <View style = {styles.container}>
-      <TouchableHighlight onPress={ () => this.props.navigate({key:'HVKey'})}>
-      <View style={{width: window.width}}><Text style={styles.hvalheader}>HitterVal Measurements
+      <PopoverTooltip
+      ref='tooltip1'
+      buttonComponent={
+      <View style={{width: window.width, height:40}}><Text style={styles.hvalheader}>HitterVal Measurements
       <Image source={require('../images/info-icon-63443.png')} style={styles.info} />
-      </Text></View></TouchableHighlight>
+      </Text></View>
+      }
+      items={[
+      {
+        label: 'Touch the items below to see hitter performance data by pitch - FF=Four-Seam Fastball, CH=Changeup, SI=Sinker, CU=Curveball, SL=Slider ',
+        onPress: () => {
+        }
+      }
+      ]}
+      // animationType='timming'
+      // using the default timming animation
+      />
         <View style={styles.child}>
         <Text style = {styles.text}>FF </Text>
         <ZoomImage
@@ -145,9 +160,12 @@ const styles = StyleSheet.create({
       height: imageHeight
     },
     hvalheader: {
-      color:'#fff',
+      color:'#000',
+      fontWeight: 'bold',
       textAlign: 'center',
-      backgroundColor: '#ffaa00'
+      //backgroundColor: '#ff8101',
+      backgroundColor: '#d3d3d3',
+      height: 40
       // justifyContent: 'center',
       // alignItems: 'center'
     },

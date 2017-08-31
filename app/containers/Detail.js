@@ -121,12 +121,21 @@ class Detail extends Component {
     //   /> }
     >
       <View style={{ height }}>
-        <TouchableHighlight style={ { paddingVertical: 10, paddingHorizontal:10, backgroundColor: '#ffaa00' } } onPress={ () => { this.props.navigateBack() } }>
+        <TouchableHighlight style={ { paddingVertical: 10, paddingHorizontal:10, backgroundColor: '#ff8101' } } onPress={ () => { this.props.navigateBack() } }>
         <Text style={{ color: '#fff'}}><Image source={require('../images/backbutton.png')} style={styles.info} />  Return to Hitters List</Text>
         </TouchableHighlight>
-        <View style={{backgroundColor: '#000', marginTop:4}}>
+        <View style={styles.detailBox}>
+        <View style={styles.detailb1}>
           <Image source={ { uri: 'http://mlb.mlb.com/mlb/images/players/head_shot/'+hitter.mlbid+'.jpg' } } style={appStyle.resultImage} />
-          <Text style={appStyle.resultText} >{hitter.firstName} {hitter.lastName} | </Text>
+          <Text style={appStyle.resultText} >{hitter.firstName} {hitter.lastName} | {hitter.position} </Text>
+        </View>
+        <View style={styles.detailb2}>
+          <Text style={appStyle.resultText}>Team: {hitter.team} </Text>
+          <Text style={appStyle.resultText}>Birthdate: {hitter.birthDate.slice(0, -14)} </Text>
+          <Text style={appStyle.resultText}>Height: {hitter.height} </Text>
+          <Text style={appStyle.resultText}>Weight: {hitter.weight} </Text>
+          <Text style={appStyle.resultText}>Bats: {hitter.bats} </Text>
+        </View>
         </View>
       <View style={styles.contentContainer}>
       <ScrollableTabView
