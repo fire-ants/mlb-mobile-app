@@ -99,9 +99,10 @@ const styles = StyleSheet.create({
 		fontSize: 12
 	},
 	info: {
-		width: 65,
-		height: 65,
-		paddingHorizontal: 30
+		width: 20,
+		height: 20,
+		marginLeft: 5,
+		//marginRight:5
 	},
 	detailBox: {
 		flexDirection: 'row'

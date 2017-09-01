@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 import { appStyle } from '../styles'
 import { bindActionCreators } from 'redux';
 import { ActionCreators } from '../actions';
-
+import {StackNavigator} from 'react-navigation';
 
 const {
     ActivityIndicator,
@@ -24,9 +24,9 @@ const window = Dimensions.get('window');
 const imageWidth = (window.width/3)+30;
 const imageHeight = window.width/3;
 
- class HVKey extends Component {
+ class FireAnts extends Component {
    static navigationOptions = {
-     title: 'HVKey',
+     title: 'FireAnts',
    };
     constructor(props){
         super(props);
@@ -43,7 +43,7 @@ const imageHeight = window.width/3;
         // console.log(this.hitters());
         // console.log('NavigateInfo__' + this.props)
         return (
-          <View style={{flex:1}}>
+          <View>
           <TouchableHighlight style={ { paddingVertical: 10, paddingHorizontal:10, backgroundColor: '#ff8101' } } onPress={ () => { this.props.navigateBack() } }>
             <View style={{flexDirection:'row'}}>
             <View style={{flex:.1}}>
@@ -51,36 +51,21 @@ const imageHeight = window.width/3;
             </View>
             <View style={{flex:.9}}>
             <Text style={{color: '#fff'}}>
-              Return to Batter Details
+              Return to Hitters List
             </Text></View>
             </View>
           </TouchableHighlight>
-             <WebView
-               automaticallyAdjustContentInsets={false}
-               source={{uri: 'https://fire-ants.github.io/hval.html'}}
-               javaScriptEnabled={true}
-               domStorageEnabled={true}
-               decelerationRate="normal"
-               startInLoadingState={true}
-               scalesPageToFit={this.state.scalesPageToFit}
-             />
+          <WebView
+            source={{uri: 'https://github.com/facebook/react-native'}}
+            style={{marginTop: 20}}
+          />
           </View>
-        );
+
+      );
     }
 }
 
         const styles = StyleSheet.create({
-          webcontainer: {
-            flex: 1,
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            },
-          video: {
-            marginTop: 20,
-            maxHeight: 200,
-            width: 320,
-            flex: 1
-            },
           scene: {
               flex: 1,
               /*marginTop: 5*/
@@ -220,4 +205,4 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
-export default connect(mapStateToProps, mapDispatchToProps)(HVKey);
+export default connect(mapStateToProps, mapDispatchToProps)(FireAnts);

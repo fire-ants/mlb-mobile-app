@@ -6,6 +6,8 @@ import createReducer from '../lib/createReducer'
 import Detail from '../containers/Detail'
 import Start from '../containers/Start'
 import Open from '../containers/Open'
+import FireAnts from '../containers/FireAnts'
+import HVKey from '../containers/HVKey'
 
 const {
  CardStack: NavigationCardStack,
@@ -30,8 +32,10 @@ export const navigationState = createReducer({ index: 0,
       { key: 'Open', },
       { key: 'Start', },
       { key: 'Detail', },
+      { key: 'HVKey', },
       { key: 'LHPitch', },
-      { key: 'RHPitch' },
+      { key: 'RHPitch', },
+      //{ key: 'FireAnts',},
       //{ key: 'Detail' },
     ]
   }, {

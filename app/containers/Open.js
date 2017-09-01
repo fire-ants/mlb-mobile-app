@@ -226,7 +226,7 @@ const imageHeight = window.width/3;
           marginLeft: 100
         },
         faimageContainer: {
-          marginTop: 100,
+          paddingTop: window.height/8,
           width: window.width,
           height: window.height,
           backgroundColor: '#fff'

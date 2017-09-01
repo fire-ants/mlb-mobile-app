@@ -20,7 +20,8 @@ import Detail from './Detail'
 import LHPitch from './LHPitch'
 import RHPitch from './RHPitch'
 import Open from './Open'
-
+import FireAnts from './FireAnts'
+import HVKey from './HVKey'
 //retry peckish redux navstyle
 //NavigationExperiemental will be deprecated as of React Native 0.43
   const {
@@ -90,8 +91,13 @@ import Open from './Open'
       if (this.props.scene.route.key === 'Open') { Scene = Open }
       if (this.props.scene.route.key === 'Start') { Scene = Start }
       if (this.props.scene.route.key === 'Detail') { Scene = Detail }
+      if (this.props.scene.route.key === 'HVKey') { Scene = HVKey }
+      if (this.props.scene.route.key === 'FireAnts') { Scene = FireAnts }
       if (this.props.scene.route.key === 'LHPitch') { Scene =  LHPitch }
       if (this.props.scene.route.key === 'RHPitch') { Scene = RHPitch }
+
+
+
 
       return  (
         <Animated.View style={style}>

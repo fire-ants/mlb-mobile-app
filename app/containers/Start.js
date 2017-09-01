@@ -2,22 +2,30 @@ import React, {Component} from 'react'
 import ReactNative from 'react-native'
 import {connect} from 'react-redux'
 import { appStyle } from '../styles'
+//import { styles } from './styles/sMenu'
 //import {StackNavigator} from 'react-navigation'
 import { bindActionCreators } from 'redux';
 import { ActionCreators } from '../actions';
-import Home from './Home';
-import About from './About';
+//import Home from './Home';
+//import About from './About';
+
+import SideMenu from 'react-native-side-menu';
+import Menu from './Menu';
+
+import {StackNavigator} from 'react-navigation';
 
 const {
     ActivityIndicator,
     AppRegistry,
     Dimensions,
+    Modal,
     ScrollView,
     View,
     Text,
     TextInput,
     Image,
     TouchableHighlight,
+    TouchableOpacity,
     StyleSheet,
  } = ReactNative;
 
@@ -32,13 +40,38 @@ const imageHeight = window.width/3;
     constructor(props){
         super(props);
 
+        this.toggle = this.toggle.bind(this);
+
         this.state = {
           searching: false,
-          hittersInput:''
+          hittersInput:'',
+          isOpen: false,
+          selectedItem: 'About',
+          modalVisable: false,
           //added for redux nav variables
-
         }
+
     }
+
+    setModalVisible(visible) {
+      this.setState({modalVisible: visible});
+   }
+
+    toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen,
+    });
+  }
+
+    updateMenuState(isOpen) {
+      this.setState({ isOpen });
+    }
+
+    onMenuItemSelected = item =>
+      this.setState({
+        isOpen: false,
+        selectedItem: item,
+      });
 
     componentWillMount() {
       this.setState({searching: true});
@@ -83,7 +116,15 @@ const imageHeight = window.width/3;
     render() {
         console.log(this.hitters());
         console.log('NavigateInfo__' + this.props)
+
+        const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
+
         return (
+          <SideMenu
+             menu={menu}
+             isOpen={this.state.isOpen}
+             onChange={isOpen => this.updateMenuState(isOpen)}
+           >
            <Image source={require('../images/black-woven-background.jpg')} style={styles.scene}>
            {/*}<View style={styles.searchSection}>
            <TextInput style={styles.searchinput}
@@ -96,9 +137,22 @@ const imageHeight = window.width/3;
                  <Text style={styles.searchbutton}>Search Hitters</Text>
                </TouchableHighlight>
             </View>*/}
-            <Text style={styles.topHeaderText}>Pitcher's Friend
-            <Image source={require('../images/info-icon-63443.png')} style={styles.info} />
+            <View style={{flex:1, width:window.width}}>
+            <View style={{flexDirection:'row'}}>
+            <View style={{flex:.32, backgroundColor:'#ff8101'}}>
+            <TouchableOpacity
+              onPress={this.toggle}
+              style={styles.button}
+            >
+            <Image source={require('../images/menu-alt-512.png')} style={styles.info} />
+            </TouchableOpacity>
+            </View>
+            <View style={{flex:.68}}>
+            <Text style={styles.topHeaderText}>Pitchers Friend
+            {/*<Image source={require('../images/info-icon-63443.png')} style={styles.info} onLayout={this.getNewDimensions}/>*/}
             </Text>
+            </View>
+            </View>
             <Text style={styles.topBarText}>Select a hitter to evaluate:</Text>
             <ScrollView contentContainerStyle={styles.container}>
                 {!this.state.searching && this.hitters().map((hitter) => {
@@ -114,7 +168,9 @@ const imageHeight = window.width/3;
                 })}
                 {this.state.searching ? <ActivityIndicator size='large' color='#ff8101' contentContainerStylestyle={styles.activityindicator} /> : null}
             </ScrollView>
+          </View>
         </Image>
+        </SideMenu>
       );
     }
 }
@@ -135,7 +191,7 @@ const imageHeight = window.width/3;
             },
             container: {
             flexDirection: 'row',
-            /*flex: 0,*/
+            //flex: 1,
             /*paddingBottom: 50,*/
             /*flexDirection: 'row',*/
             /*alignItems: 'center',*/
@@ -237,19 +293,86 @@ const imageHeight = window.width/3;
             fontWeight: 'bold',
             backgroundColor: '#ff8101',
             height:50,
-            paddingLeft: 15,
+            //paddingLeft: 15,
             paddingTop: 10,
             paddingRight: 5,
-            width: window.width,
-            textAlign: 'center'
+            //width: window.width,
+            textAlign: 'left'
           },
         info: {
-          width: 90,
-          height: 90,
-          marginLeft: 100,
-          paddingLeft: 5
+          width: 35,
+          height: 35,
+          //marginLeft: 100,
+          marginLeft: 10,
+          marginTop: 8
         },
         imageBorder: {
+        },
+        dcontainer: {
+          flex:1
+        },
+        main: {
+          position: 'absolute',
+          backgroundColor: '#000'
+        },
+        head: {
+          height: 60,
+          marginBottom: 200,
+          justifyContent: 'center',
+          alignItems: 'center',
+          alignSelf: 'stretch',
+          backgroundColor: '#6a0d45'
+        },
+        content: {
+          flex: 1,
+          alignItems: 'center',
+          alignSelf: 'stretch',
+          backgroundColor: '#e3b8cb'
+        },
+        drawerContent: {
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center'
+        },
+        leftTop: {
+          flex: 1,
+          justifyContent: 'space-around',
+          alignItems: 'stretch',
+          alignSelf: 'stretch',
+          backgroundColor: '#8ad8dd'
+        },
+        leftBottom: {
+          flex: 2,
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          alignSelf: 'stretch',
+          backgroundColor: '#f0f0f0'
+        },
+        leftDrawer: {
+          borderRightWidth: 4,
+          borderRightColor: '#5b585a'
+        },
+        rightDrawer: {
+          borderLeftWidth: 4,
+          borderLeftColor: '#5b585a'
+        },
+        btn1: {
+          marginTop: 10,
+          padding: 10,
+          overflow: 'hidden',
+          borderRadius: 5,
+          backgroundColor: '#f06355'
+        },
+        btn2: {
+          marginTop: 10,
+          padding: 10,
+          overflow: 'hidden',
+          borderRadius: 5,
+          backgroundColor: '#37b9d5'
+        },
+        btnText: {
+          fontSize: 14,
+          color: '#f0f0f0'
         }
         });
 

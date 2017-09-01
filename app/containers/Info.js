@@ -20,7 +20,7 @@ import LHPitch from './LHPitch'
 import RHPitch from './RHPitch'
 import styles from './styles/Hitter';
 
-class Detail extends Component {
+class Info extends Component {
 
   constructor(props) {
     super(props);
@@ -105,15 +105,10 @@ class Detail extends Component {
       >
         <View style={{ height }}>
           <TouchableHighlight style={ { paddingVertical: 10, paddingHorizontal:10, backgroundColor: '#ff8101' } } onPress={ () => { this.props.navigateBack() } }>
-            <View style={{flexDirection:'row'}}>
-            <View style={{flex:.1}}>
-            <Image source={require('../images/backbutton.png')} style={styles.info} />
-            </View>
-            <View style={{flex:.9}}>
-            <Text style={{color: '#fff'}}>
+            < Text style={{ color: '#fff'}}>
+              <Image source={require('../images/backbutton.png')} style={styles.info} />
               Return to Hitters List
-            </Text></View>
-            </View>
+            </Text>
           </TouchableHighlight>
           <View style={styles.detailBox}>
             <View style={styles.detailb1}>
@@ -159,4 +154,4 @@ function mapDispatchToProps(dispatch) {
   return bindActionCreators(ActionCreators, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Detail);
+export default connect(mapStateToProps, mapDispatchToProps)(Info);

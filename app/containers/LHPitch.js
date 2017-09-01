@@ -18,6 +18,7 @@ const {
     TextInput,
     Image,
     TouchableHighlight,
+    TouchableOpacity,
     StyleSheet,
  } = ReactNative;
 
@@ -47,22 +48,16 @@ class LHPitch extends Component {
     //console.log (`HERE: `+hitter.mlbid)
     return (
       <View style = {styles.container}>
-      <PopoverTooltip
-      ref='tooltip1'
-      buttonComponent={
-      <View style={{width: window.width, height:40}}><Text style={styles.hvalheader}>HitterVal Measurements
+      <View style={{flexDirection:'row'}}>
+      <View style={{flex:.7, width: window.width, height:40}}>
+      <Text style={styles.hvalheader}>HitterVal Measurements</Text>
+      </View>
+      <View style={{flex:.3, backgroundColor: '#d3d3d3'}}>
+      <TouchableOpacity onPress={ () => this.props.navigate({key:'HVKey', id: hitter.mlbid })}>
       <Image source={require('../images/info-icon-63443.png')} style={styles.info} />
-      </Text></View>
-      }
-      items={[
-      {
-        label: 'Touch the items below to see hitter performance data by pitch - FF=Four-Seam Fastball, CH=Changeup, SI=Sinker, CU=Curveball, SL=Slider ',
-        onPress: () => {}
-      }
-      ]}
-      // animationType='timming'
-      // using the default timming animation
-      />
+      </TouchableOpacity>
+      </View>
+      </View>
         <View style={styles.child}>
         <Text style = {styles.text}>FF </Text>
         <ZoomImage
@@ -162,18 +157,19 @@ const styles = StyleSheet.create({
     hvalheader: {
       color:'#000',
       fontWeight: 'bold',
-      textAlign: 'center',
+      textAlign: 'right',
       //backgroundColor: '#ff8101',
       backgroundColor: '#d3d3d3',
-      height: 40
+      height: 40,
+      paddingTop: 12
       // justifyContent: 'center',
       // alignItems: 'center'
     },
     info: {
-      width: 95,
-      height: 95,
-      alignItems: 'center',
-      justifyContent: 'center',
+      width: 30,
+      height: 30,
+      //alignItems: 'center',
+      //justifyContent: 'center',
     }
 });
 
