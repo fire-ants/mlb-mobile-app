@@ -117,7 +117,29 @@ class Detail extends Component {
           </TouchableHighlight>
           <View style={styles.detailBox}>
             <View style={styles.detailb1}>
-              <Image source={ { uri: 'http://mlb.mlb.com/mlb/images/players/head_shot/'+hitter.mlbid+'.jpg' } } style={appStyle.resultImage} />
+            {(() => {
+              switch (hitter.id) {
+                case 514888 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f0e8fd62_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 453568 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/12154e57_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 457759 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/fbc00dba_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 519317 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/8/87f6986b_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 458015 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/9/9f4721ab_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 547180 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201709071/images/headshots/c/c61e922e_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 641355 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/3/32775691_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 592450 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/06c9f502_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 545361 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f322d40f_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 457705 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f3998f8d_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 502671 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/6/6b37a7f2_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 518626 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/3/3af4cc98_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 502517 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/17225395_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 518934 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/07868aab_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 592178 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/1d358f93_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 471865 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/07868aab_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 519346 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/a/a96c3457_mlbam.jpg`}} style={appStyle.resultImage} />;
+                case 460075 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/8/8b4db8f5_mlbam.jpg`}} style={appStyle.resultImage} />;
+                default: return <Image source={{uri:``}} style={appStyle.resultImage} />;
+              }
+            })()}
               <Text style={appStyle.resultText} >{hitter.firstName} {hitter.lastName} | {hitter.position} </Text>
             </View>
             <View style={styles.detailb2}>

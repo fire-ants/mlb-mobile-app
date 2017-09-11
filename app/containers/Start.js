@@ -118,6 +118,8 @@ const imageHeight = window.width/3;
         console.log('NavigateInfo__' + this.props)
 
         const menu = <Menu onItemSelected={this.onMenuItemSelected} />;
+        const hitterimage='https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f0e8fd62_mlbam.jpg'
+
 
         return (
           <SideMenu
@@ -148,19 +150,42 @@ const imageHeight = window.width/3;
             </TouchableOpacity>
             </View>
             <View style={{flex:.68}}>
-            <Text style={styles.topHeaderText}>Pitcher's Friend
+            <Text style={styles.topHeaderText}>Pitcher''s Friend
             {/*<Image source={require('../images/info-icon-63443.png')} style={styles.info} onLayout={this.getNewDimensions}/>*/}
             </Text>
             </View>
             </View>
             <Text style={styles.topBarText}>Select a hitter to evaluate:</Text>
             <ScrollView contentContainerStyle={styles.container}>
-                {!this.state.searching && this.hitters().map((hitter) => {
+                {!this.state.searching && this.hitters().map((hitter) =>
+                  {
                     return <TouchableHighlight key={hitter.id}  style={styles.searchButton} onPress={ () => this.props.navigate({key:'Detail', id: hitter.id})} style={styles.imageBorder}>
                       <View key={hitter.id} style={styles.child}>
-                        <Image
-                          source={{uri: `http://mlb.mlb.com/mlb/images/players/head_shot/${hitter.mlbid}.jpg`}}
-                          style={styles.image} />
+                      <View>
+                        {(() => {
+                          switch (hitter.id) {
+                            case 514888 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f0e8fd62_mlbam.jpg`}} style={styles.image} />;
+                            case 453568 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/12154e57_mlbam.jpg`}} style={styles.image} />;
+                            case 457759 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/fbc00dba_mlbam.jpg`}} style={styles.image} />;
+                            case 519317 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/8/87f6986b_mlbam.jpg`}} style={styles.image} />;
+                            case 458015 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/9/9f4721ab_mlbam.jpg`}} style={styles.image} />;
+                            case 547180 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201709071/images/headshots/c/c61e922e_mlbam.jpg`}} style={styles.image} />;
+                            case 641355 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/3/32775691_mlbam.jpg`}} style={styles.image} />;
+                            case 592450 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/06c9f502_mlbam.jpg`}} style={styles.image} />;
+                            case 545361 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f322d40f_mlbam.jpg`}} style={styles.image} />;
+                            case 457705 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f3998f8d_mlbam.jpg`}} style={styles.image} />;
+                            case 502671 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/6/6b37a7f2_mlbam.jpg`}} style={styles.image} />;
+                            case 518626 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/3/3af4cc98_mlbam.jpg`}} style={styles.image} />;
+                            case 502517 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/17225395_mlbam.jpg`}} style={styles.image} />;
+                            case 518934 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/07868aab_mlbam.jpg`}} style={styles.image} />;
+                            case 592178 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/1d358f93_mlbam.jpg`}} style={styles.image} />;
+                            case 471865 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/07868aab_mlbam.jpg`}} style={styles.image} />;
+                            case 519346 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/a/a96c3457_mlbam.jpg`}} style={styles.image} />;
+                            case 460075 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/8/8b4db8f5_mlbam.jpg`}} style={styles.image} />;
+                            default: return <Image source={{uri:``}} style={styles.image} />;
+                          }
+                        })()}
+                        </View>
                           <Text style={styles.text} >{hitter.firstName} {hitter.lastName} | {hitter.position} </Text>
                           <Text style={styles.teamtext}>{hitter.team}</Text>
                       </View>
