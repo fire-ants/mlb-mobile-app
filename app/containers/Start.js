@@ -164,24 +164,24 @@ const imageHeight = window.width/3;
                       <View>
                         {(() => {
                           switch (hitter.id) {
-                            case 514888 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f0e8fd62_mlbam.jpg`}} style={styles.image} />;
-                            case 453568 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/12154e57_mlbam.jpg`}} style={styles.image} />;
-                            case 457759 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/fbc00dba_mlbam.jpg`}} style={styles.image} />;
-                            case 519317 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/8/87f6986b_mlbam.jpg`}} style={styles.image} />;
-                            case 458015 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/9/9f4721ab_mlbam.jpg`}} style={styles.image} />;
-                            case 547180 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201709071/images/headshots/c/c61e922e_mlbam.jpg`}} style={styles.image} />;
-                            case 641355 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/3/32775691_mlbam.jpg`}} style={styles.image} />;
-                            case 592450 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/06c9f502_mlbam.jpg`}} style={styles.image} />;
-                            case 545361 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f322d40f_mlbam.jpg`}} style={styles.image} />;
-                            case 457705 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/f/f3998f8d_mlbam.jpg`}} style={styles.image} />;
-                            case 502671 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/6/6b37a7f2_mlbam.jpg`}} style={styles.image} />;
-                            case 518626 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/3/3af4cc98_mlbam.jpg`}} style={styles.image} />;
-                            case 502517 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/17225395_mlbam.jpg`}} style={styles.image} />;
-                            case 518934 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/07868aab_mlbam.jpg`}} style={styles.image} />;
-                            case 592178 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/1/1d358f93_mlbam.jpg`}} style={styles.image} />;
-                            case 471865 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/0/07868aab_mlbam.jpg`}} style={styles.image} />;
-                            case 519346 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/a/a96c3457_mlbam.jpg`}} style={styles.image} />;
-                            case 460075 : return <Image source={{uri:`https://d3k2oh6evki4b7.cloudfront.net/req/201707131/images/headshots/8/8b4db8f5_mlbam.jpg`}} style={styles.image} />;
+                            case 514888 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/f0e8fd62_mlbam_altuve_514888.jpg`}} style={styles.image} />;
+                            case 453568 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/12154e57_mlbam_blackmon_453568.jpg`}} style={styles.image} />;
+                            case 457759 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/fbc00dba_mlbam_turner_457759.jpg`}} style={styles.image} />;
+                            case 519317 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/87f6986b_mlbam_stanton_519317.jpg`}} style={styles.image} />;
+                            case 458015 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/9f4721ab_mlbam_votto_458015.jpg`}} style={styles.image} />;
+                            case 547180 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/c61e922e_mlbam_harper_547180.jpg`}} style={styles.image} />;
+                            case 641355 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/32775691_mlbam_bellinger_641355.jpg`}} style={styles.image} />;
+                            case 592450 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/06c9f502_mlbam_judge_592450.jpg`}} style={styles.image} />;
+                            case 545361 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/f322d40f_mlbam_545361.jpg`}} style={styles.image} />;
+                            case 457705 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/f3998f8d_mlbam_mccutchen_457705.jpg`}} style={styles.image} />;
+                            case 502671 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/6b37a7f2_mlbam_goldschmidt_502671.jpg`}} style={styles.image} />;
+                            case 518626 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/3af4cc98_mlbam_donaldson_518626.jpg`}} style={styles.image} />;
+                            case 502517 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/17225395_mlbam_murphy_502517.jpg`}} style={styles.image} />;
+                            case 518934 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/07868aab_mlbam_lemahieu_518934.jpg`}} style={styles.image} />;
+                            case 592178 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/1d358f93_mlbam_bryant_592178.jpg`}} style={styles.image} />;
+                            case 471865 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/4b177c4a_mlbam_gonzalez_471865.jpg`}} style={styles.image} />;
+                            case 519346 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/a96c3457_mlbam_thames_519346.jpg`}} style={styles.image} />;
+                            case 460075 : return <Image source={{uri:`https://s3.amazonaws.com/mlb-pf/8b4db8f5_mlbam_braun_460075.jpg`}} style={styles.image} />;
                             default: return <Image source={{uri:``}} style={styles.image} />;
                           }
                         })()}
