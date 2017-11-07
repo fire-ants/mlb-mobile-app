@@ -1,4 +1,4 @@
-package com.pitchersfriend;
+package com.pitchersfriendfa;
 
 import com.facebook.react.ReactActivity;
 

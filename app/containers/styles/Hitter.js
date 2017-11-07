@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
 	detailb2: {
 		flex:1,
 		marginTop: 25,
-		marginLeft: -65
+		marginLeft: -55
 	}
 
 });
