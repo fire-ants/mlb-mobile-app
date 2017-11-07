@@ -8,6 +8,7 @@ import {ActionCreators} from '../actions'
 import {
     Animated,
     AppRegistry,
+    StatusBar,
     StyleSheet,
     Text,
     View,
@@ -65,6 +66,7 @@ import HVKey from './HVKey'
 
       return (
         <View style={ { flex: 1 } }>
+          <StatusBar hidden={true} />
           {scenes}
         </View>
       );
