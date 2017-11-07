@@ -150,7 +150,7 @@ const imageHeight = window.width/3;
             </TouchableOpacity>
             </View>
             <View style={{flex:.68}}>
-            <Text style={styles.topHeaderText}>Pitcher''s Friend
+            <Text style={styles.topHeaderText}>Pitcher's Friend
             {/*<Image source={require('../images/info-icon-63443.png')} style={styles.info} onLayout={this.getNewDimensions}/>*/}
             </Text>
             </View>
