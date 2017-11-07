@@ -31,10 +31,9 @@ const mstyles = StyleSheet.create({
     width: 48,
     height: 48,
     borderRadius: 4,
-    flex: 1,
+    flexGrow: 1,
   },
   name: {
-    //position: 'absolute',
     left: 16,
     top: 20,
     color:'#000',

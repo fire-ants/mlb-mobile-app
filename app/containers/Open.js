@@ -85,21 +85,8 @@ const imageHeight = window.width/3;
     // }
 
     render() {
-        // console.log(this.hitters());
-        // console.log('NavigateInfo__' + this.props)
         return (
           <View style={styles.faimageContainer}>
-           {/*}<View style={styles.searchSection}>
-           <TextInput style={styles.searchinput}
-            returnKeyType="search"
-            placeholder="Enter Hitter to Search"
-            onChangeText={ (hittersInput) => this.setState({hittersInput})}
-            value={this.state.hittersInput}
-           />
-               <TouchableHighlight onPress={ () => this.searchPressed()}>
-                 <Text style={styles.searchbutton}>Search Hitters</Text>
-               </TouchableHighlight>
-            </View>*/}
             <Text style={styles.topHeaderText}>Welcome to the Pitcher's Friend</Text>
             <View>
             <TouchableHighlight onPress={ () => this.props.navigate({key:'Start'})}><Image source={require('../images/fireants-med.jpg')} style={styles.faimage} resizeMode="contain" /></TouchableHighlight>
@@ -111,139 +98,34 @@ const imageHeight = window.width/3;
     }
 }
 
-        const styles = StyleSheet.create({
-          scene: {
-              flex: 1,
-              /*marginTop: 5*/
-            },
-            searchSection: {
-              height: 45,
-              flexDirection: 'row',
-              /*borderBottomColor: '#000',*/
-              borderBottomWidth: 1,
-              /*padding: 2,*/
-              width: window.width,
-              opacity: 0
-            },
-            container: {
-            flexDirection: 'row',
-            /*flex: 0,*/
-            /*paddingBottom: 50,*/
-            /*flexDirection: 'row',*/
-            /*alignItems: 'center',*/
-            flexWrap: 'wrap',
-            width: window.width,
-            /*marginBottom: 10,*/
-           justifyContent: 'center',
-           alignItems: 'flex-end'
-          },
-          child: {
-            /*width: window.width*4,*/
-            alignItems: 'flex-start',
-            /*height: imageHeight+30,*/
-            marginTop: 5,
-            marginLeft: 5,
-            padding: 10
-          },
-          image: {
-            width: imageWidth,
-            height: imageHeight
-          },
-          text: {
-            flex: 1,
-            width: imageWidth,
-            backgroundColor: '#ff8101',
-            color: '#fff',
-            padding: 5,
-            justifyContent: 'center',
-            fontWeight: 'bold',
-            //height: 55,
-            alignItems: 'center',
-            textAlign: 'center'
-          },
-          teamtext: {
-            flex: 1,
-            width: imageWidth,
-            backgroundColor: '#ff8101',
-            color: '#fff',
-            padding: 5,
-            marginTop: -8,
-            justifyContent: 'center',
-            fontWeight: 'bold',
-            height: 30,
-            alignItems: 'center',
-            textAlign: 'center'
-          },
-          searchinput: {
-            backgroundColor: '#fff',
-            flex: 0.6,
-            padding: 5
-          },
-          searchbutton: {
-            backgroundColor: '#ff8101',
-            color: '#000',
-            flex: 0.4,
-            padding: 10
-          },
-          searching: {
-            width: window.width,
-            backgroundColor: '#ff8101',
-            color: '#fff',
-            padding: 5
-          },
-          topBarText: {
-            color:'#ff8101',
-            fontWeight: 'bold',
-            backgroundColor: '#000',
-            height: 20,
-            width: window.width,
-            paddingLeft: 15,
-          },
-          activityindicator: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: 400
-            // position: 'absolute',
-            // //marginTop: 157,
-            // height: 50
-          },
-          topHeaderText: {
-            color:'#5d5d5d',
-            fontSize: 20,
-            fontWeight: 'bold',
-            backgroundColor: '#fff',
-            //height:50,
-            paddingLeft: 15,
-            paddingTop: 10,
-            textAlign: 'center',
-            width: window.width,
-            height:window.height/7
-          },
-        info: {
-          width: 95,
-          height: 95,
-          marginLeft: 100
-        },
-        faimageContainer: {
-          paddingTop: window.height/8,
-          width: window.width,
-          height: window.height,
-          backgroundColor: '#fff'
-        },
-        faimage: {
-          width: window.width,
-          height: 200,
-          //justifyContent: 'center',
-          //alignItems: 'center'
-        }
-        });
+const styles = StyleSheet.create({
+  topHeaderText: {
+    color:'#5d5d5d',
+    fontSize: 20,
+    fontWeight: 'bold',
+    backgroundColor: '#fff',
+    paddingLeft: 15,
+    paddingTop: 10,
+    textAlign: 'center',
+    width: window.width,
+    height:window.height/7
+  },
+  faimageContainer: {
+    paddingTop: window.height/8,
+    width: window.width,
+    height: window.height,
+    backgroundColor: '#fff'
+  },
+  faimage: {
+    width: window.width,
+    height: 200
+  }
+});
 
 function mapStateToProps(state) {
-    return {
-        // searchedHitters: state.searchedHitters,
-        navigationState: state.navigationState
-          }
+  return {
+    navigationState: state.navigationState
+  }
 }
 
 //Added to carry forward additional state items

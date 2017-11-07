@@ -203,33 +203,23 @@ const imageHeight = window.width/3;
         const styles = StyleSheet.create({
           scene: {
               flex: 1,
-              /*marginTop: 5*/
             },
             searchSection: {
               height: 45,
               flexDirection: 'row',
-              /*borderBottomColor: '#000',*/
               borderBottomWidth: 1,
-              /*padding: 2,*/
               width: window.width,
               opacity: 0
             },
             container: {
             flexDirection: 'row',
-            //flex: 1,
-            /*paddingBottom: 50,*/
-            /*flexDirection: 'row',*/
-            /*alignItems: 'center',*/
             flexWrap: 'wrap',
             width: window.width,
-            /*marginBottom: 10,*/
            justifyContent: 'center',
            alignItems: 'flex-end'
           },
           child: {
-            /*width: window.width/4,*/
             alignItems: 'flex-start',
-            /*height: imageHeight+30,*/
             marginTop: 5,
             marginLeft: 5,
             padding: 10
@@ -241,13 +231,11 @@ const imageHeight = window.width/3;
           text: {
             flex: 1,
             width: imageWidth,
-            //backgroundColor: '#ff8101',
             backgroundColor: '#d3d3d3',
             color: '#000',
             padding: 5,
             justifyContent: 'center',
             fontWeight: 'bold',
-            //height: 55,
             alignItems: 'center',
             textAlign: 'center',
             borderRightColor: '#ff8101',

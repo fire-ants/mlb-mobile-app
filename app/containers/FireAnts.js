@@ -65,26 +65,20 @@ const imageHeight = window.width/3;
     }
 }
 
-        const styles = StyleSheet.create({
-          scene: {
-              flex: 1,
-              /*marginTop: 5*/
-            },
-            searchSection: {
-              height: 45,
-              flexDirection: 'row',
-              /*borderBottomColor: '#000',*/
-              borderBottomWidth: 1,
-              /*padding: 2,*/
-              width: window.width,
-              opacity: 0
-            },
+const styles = StyleSheet.create({
+  scene: {
+    flex: 1,
+  },
+  searchSection: {
+    height: 45,
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    width: window.width,
+    opacity: 0
+  },
             container: {
             flexDirection: 'row',
-            /*flex: 0,*/
-            /*paddingBottom: 50,*/
-            /*flexDirection: 'row',*/
-            /*alignItems: 'center',*/
+
             flexWrap: 'wrap',
             width: window.width,
             /*marginBottom: 10,*/
