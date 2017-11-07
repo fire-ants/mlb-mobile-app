@@ -17,7 +17,7 @@ const uri = '../images/fireants-med.jpg';
 const mstyles = StyleSheet.create({
   menu: {
     flex: 1,
-    width: window.width,
+    width: window.width/1.5,
     height: window.height,
     backgroundColor: '#fff',
     padding: 20,
@@ -28,10 +28,11 @@ const mstyles = StyleSheet.create({
     marginTop: 20,
   },
   avatar: {
-    width: 48,
-    height: 48,
+    width: 0,
+    height: 0,
     borderRadius: 4,
     flexGrow: 1,
+    marginBottom: -15,
   },
   name: {
     left: 16,
@@ -55,12 +56,11 @@ export default function Menu({ onItemSelected }) {
           style={mstyles.avatar}
           source={require('../images/fireants-med.jpg')}
         />
-        <Text style={mstyles.name}>About Pitcher's Friend</Text>
       </View>
 
       <WebView
         automaticallyAdjustContentInsets={true}
-        source={{uri: 'https://fire-ants.github.io/'}}
+        source={{uri: 'https://fire-ants.github.io/fa-about.html'}}
         javaScriptEnabled={true}
         domStorageEnabled={true}
         decelerationRate="normal"
