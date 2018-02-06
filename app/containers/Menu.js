@@ -17,7 +17,7 @@ const uri = '../images/fireants-med.jpg';
 const mstyles = StyleSheet.create({
   menu: {
     flex: 1,
-    width: window.width/1.5,
+    width: window.width/1.4,
     height: window.height,
     backgroundColor: '#fff',
     padding: 20,

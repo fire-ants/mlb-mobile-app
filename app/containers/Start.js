@@ -113,6 +113,19 @@ const imageHeight = window.width/3;
       return Object.keys(select).map(key => select[key]);
     }
 
+    hittersInsights() {
+      const players = this.props.searchedHittersInsights
+      const select = {};
+
+      select[0] = players[0];
+      select[1] = players[1];
+      select[2] = players[2];
+      select[3] = players[3];
+      select[4] = players[4];
+      select[5] = players[5];
+
+      return Object.keys(select).map(key => select[key]);
+    }
     render() {
         console.log(this.hitters());
         console.log('NavigateInfo__' + this.props)
@@ -392,6 +405,7 @@ const imageHeight = window.width/3;
 function mapStateToProps(state) {
     return {
         searchedHitters: state.searchedHitters,
+        searchedHittersInsights: state.searchedHittersInsights,
         navigationState: state.navigationState
           }
 }

@@ -12,6 +12,17 @@ export const searchedHitters = createReducer({}, {
     }
 });
 
+export const searchedHittersInsights = createReducer({}, {
+    [types.SET_SEARCHED_HITTERS_INSIGHTS](state, action) {
+        let newState = {};
+        action.hittersInsights.forEach((hitterInsights) => {
+          let id = hitterInsights.id;
+          newState[id] = Object.assign({}, hitterInsights, {id});
+        });
+        return newState;
+    }
+});
+
 export const searchedHitter = createReducer({}, {
   [types.SET_SEARCHED_HITTER](state, action) {
     let newState = {};

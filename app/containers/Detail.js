@@ -40,6 +40,7 @@ class Detail extends Component {
 
   hitter() {
     return this.props.searchedHitters[this.props.navigationParams.id] || null;
+    return this.props.searchedHittersInsights[this.props.navigationParams.id] || null;
   }
 
   _onRefresh() {
@@ -173,6 +174,7 @@ class Detail extends Component {
 function mapStateToProps(state) {
   return {
     searchedHitters: state.searchedHitters,
+    searchedHittersInsights: state.searchedHittersInsights,
     navigationParams: state.navigationParams,
   };
 }

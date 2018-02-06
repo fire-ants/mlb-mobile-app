@@ -108,8 +108,9 @@ const styles = StyleSheet.create({
 	},
 	detailb2: {
 		flex:1,
+		backgroundColor: '#000',
 		marginTop: 25,
-		marginLeft: -55
+		marginLeft: -50
 	}
 
 });

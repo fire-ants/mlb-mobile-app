@@ -16,6 +16,16 @@ export function fetchHitters(name) {
   }
 }
 
+export function fetchHittersInsights(mlbid) {
+  return (dispatch, getState) => {
+    return Api.get(`/player/457759/insight`).then(resp => {
+      dispatch(setSearchedHittersInsights({hittersInsights: resp}));
+    }).catch( (ex) => {
+      console.log(ex);
+    })
+  }
+}
+
 export function fetchHitter(mlbid) {
     return (dispatch, getState) => {;
         return Api.get(`/player/${mlbid}`).then(resp => {
@@ -30,6 +40,13 @@ export function setSearchedHitters({hitters}){
   return {
     type: types.SET_SEARCHED_HITTERS,
       hitters
+  }
+}
+
+export function setSearchedHittersInsights({hittersInsights}){
+  return {
+    type: types.SET_SEARCHED_HITTERS_INSIGHTS,
+      hittersInsights
   }
 }
 
