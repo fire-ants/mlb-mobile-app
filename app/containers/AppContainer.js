@@ -23,8 +23,8 @@ import RHPitch from './RHPitch'
 import Open from './Open'
 import FireAnts from './FireAnts'
 import HVKey from './HVKey'
-//retry peckish redux navstyle
-//NavigationExperiemental will be deprecated as of React Native 0.43
+
+
   const {
     PropTypes: NavigationPropTypes,
     StateUtils: NavigationStateUtils,
@@ -35,9 +35,7 @@ import HVKey from './HVKey'
   const {
     PagerStyleInterpolator: NavigationPagerStyleInterpolator,
   } = NavigationCard;
-//peckish import 1 end
 
-//REDUX NAV PECKISH BELOW
   class AppContainer extends Component {
 
   constructor(props: any, context: any) {
@@ -98,9 +96,6 @@ import HVKey from './HVKey'
       if (this.props.scene.route.key === 'LHPitch') { Scene =  LHPitch }
       if (this.props.scene.route.key === 'RHPitch') { Scene = RHPitch }
 
-
-
-
       return  (
         <Animated.View style={style}>
           <Scene {...this.props} style={style} />
@@ -119,28 +114,6 @@ import HVKey from './HVKey'
       top: 0,
     },
   });
-//REDUX NAV PECKISH ABOVE
-
-
-//WORKING WITHOUTH REDUX NAV BELOW
-//-----------------------------------------------
-// class AppContainer extends Component {
-//     static navigationOptions = {
-//       title: 'Hitters',
-// };
-//   render() {
-//     return (<Start {...this.props} />);
-//     }
-//   }
-//------------------------------------------------
-//WORKING WITHOUT REDUX NAV ABOVE
-
-
-// const SimpleNav = StackNavigator({
-//     Start: { screen: Start },
-//     Detail: { screen: Detail },
-// });
-
 
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(ActionCreators, dispatch);
@@ -153,7 +126,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
-
-//Old render for non-navigationState
-//AppRegistry.registerComponent('SimpleNav', () => SimpleNav);
-//export default connect((state) => { return {} }, mapDispatchToProps)(AppContainer);
