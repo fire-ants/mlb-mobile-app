@@ -67,12 +67,6 @@ export default function Menu({ onItemSelected }) {
         startInLoadingState={true}
         scalesPageToFit={true}
       />
-      {/*}<Text
-        onPress={() => onItemSelected('Contacts')}
-        style={mstyles.item}
-      >
-        Contacts
-      </Text>*/}
     </View>
   );
 }
