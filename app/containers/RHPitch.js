@@ -8,19 +8,19 @@ import ZoomImage from 'react-native-zoom-image';
 import PopoverTooltip from 'react-native-popover-tooltip';
 
 const {
-    ActivityIndicator,
-    AppRegistry,
-    Dimensions,
-    Easing,
-    ScrollView,
-    View,
-    Text,
-    TextInput,
-    Image,
-    TouchableHighlight,
-    TouchableOpacity,
-    StyleSheet,
- } = ReactNative;
+  ActivityIndicator,
+  AppRegistry,
+  Dimensions,
+  Easing,
+  ScrollView,
+  View,
+  Text,
+  TextInput,
+  Image,
+  TouchableHighlight,
+  TouchableOpacity,
+  StyleSheet,
+} = ReactNative;
 
  const window = Dimensions.get('window');
  const imageWidth = (window.width/3)+50;
@@ -43,9 +43,7 @@ class LHPitch extends Component {
   render () {
     const hitter = this.hitter();
     if (!hitter) { return null }
-    console.log (`HERE: `+JSON.stringify(hitter))
 
-    //console.log (`HERE: `+hitter.mlbid)
     return (
       <View style = {styles.container}>
       <View style={{flexDirection:'row'}}>
@@ -125,9 +123,8 @@ class LHPitch extends Component {
 
 const styles = StyleSheet.create({
   scene: {
-      flex: 1,
-      /*marginTop: 5*/
-    },
+    flex: 1,
+  },
   container: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -135,42 +132,34 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-end',
     marginBottom: 5
-    },
-    child: {
-      /*width: window.width*4,*/
-      alignItems: 'flex-start',
-      /*height: imageHeight+30,*/
-      marginTop: 5,
-    //  marginLeft: 5,
-      paddingTop: 2,
-      paddingRight: 6,
-      paddingBottom: 2
-    },
-    text : {
-      color: '#fff',
-      paddingRight: 2
-    },
-    hmImage: {
-      width: imageWidth,
-      height: imageHeight
-    },
-    hvalheader: {
-      color:'#000',
-      fontWeight: 'bold',
-      textAlign: 'right',
-      //backgroundColor: '#ff8101',
-      backgroundColor: '#d3d3d3',
-      height: 40,
-      paddingTop: 12
-      // justifyContent: 'center',
-      // alignItems: 'center'
-    },
-    info: {
-      width: 30,
-      height: 30,
-      //alignItems: 'center',
-      //justifyContent: 'center',
-    }
+  },
+  child: {
+    alignItems: 'flex-start',
+    marginTop: 5,
+    paddingTop: 2,
+    paddingRight: 6,
+    paddingBottom: 2
+  },
+  text : {
+    color: '#fff',
+    paddingRight: 2
+  },
+  hmImage: {
+    width: imageWidth,
+    height: imageHeight
+  },
+  hvalheader: {
+    color:'#000',
+    fontWeight: 'bold',
+    textAlign: 'right',
+    backgroundColor: '#d3d3d3',
+    height: 40,
+    paddingTop: 12
+  },
+  info: {
+    width: 30,
+    height: 30,
+  }
 });
 
 function mapStateToProps(state) {
