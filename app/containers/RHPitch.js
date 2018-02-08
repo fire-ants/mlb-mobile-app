@@ -85,25 +85,25 @@ class RHPitch extends Component {
 
        });
 
-       return (
-         <View style={{width:window.width-10 }}>
-         <ListView
-           dataSource={this.state.dataSource}
-           renderRow={(rowData) =>
-           <View style={{flexDirection:'row'}}>
-           <View style={{flex:.09}}>
-           <Image source={require('../images/fireants-nw.png')} style={styles.info} />
-           </View>
-           <View style={{flex:.91}}>
-           <Text style={{padding:2, color:'#fff'}}>
-           {rowData}
-           </Text>
-           </View>
-           </View>
-         }
-         />
-         </View>
-       );
+       // return (
+       //   <View style={{width:window.width-10 }}>
+       //   <ListView
+       //     dataSource={this.state.dataSource}
+       //     renderRow={(rowData) =>
+       //     <View style={{flexDirection:'row'}}>
+       //     <View style={{flex:.09}}>
+       //     <Image source={require('../images/fireants-nw.png')} style={styles.info} />
+       //     </View>
+       //     <View style={{flex:.91}}>
+       //     <Text style={{padding:2, color:'#fff'}}>
+       //     {rowData}
+       //     </Text>
+       //     </View>
+       //     </View>
+       //   }
+       //   />
+       //   </View>
+       // );
 
       //   var findings = Object.assign(url)
       //
@@ -133,7 +133,27 @@ class RHPitch extends Component {
       //     </View>
       //   );
     }
-
+    renderList() {
+     if (this.state.dataSource._cachedRowCount > 0) {
+       return (
+         <ListView
+           dataSource={this.state.dataSource}
+           renderRow={(rowData) =>
+           <View style={{flexDirection:'row'}}>
+           <View style={{flex:.09}}>
+           <Image source={require('../images/fireants-nw.png')} style={styles.info} />
+           </View>
+           <View style={{flex:.91}}>
+           <Text style={{padding:2, color:'#fff'}}>
+           {rowData}
+           </Text>
+           </View>
+           </View>
+         }
+         />
+       );
+     }
+   };
   render () {
     const hitter = this.hitter();
     const hitterInsights = this.hitterInsights();
@@ -143,6 +163,7 @@ class RHPitch extends Component {
     console.log(this.hitter())
     console.log(this.hitterInsights())
     //console.log (`HERE: `+hitter.mlbid)
+    console.log(this.renderList())
     return (
       <View style = {styles.container}>
       <View style={{flexDirection:'row'}}>
@@ -157,7 +178,9 @@ class RHPitch extends Component {
       </View>
         <View style={{width: window.width}}>
         <Text style={{color:'#ff8e1b'}}>Fire Ants Machine Learning Data:</Text>
-        {hitterInsights}
+        <View style={{width:window.width-10 }}>
+        {this.renderList()}
+        </View>
         </View>
 
         <View style={styles.child}>
