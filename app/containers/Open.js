@@ -49,7 +49,7 @@ const imageHeight = window.width/3;
         <Text style={styles.topHeaderText}>Welcome to the Pitcher's Friend</Text>
         <View>
           <TouchableHighlight onPress={ () => this.props.navigate({key:'Start'})}><Image source={require('../images/fireants-med.jpg')} style={styles.faimage} resizeMode="contain" /></TouchableHighlight>
-          <Text style={{color:'#5d5d5d', textAlign:'center'}}> Copyright © 2017 All Rights Reserved. </Text>
+          <Text style={{color:'#5d5d5d', textAlign:'center'}}> Copyright © {(new Date()).getFullYear()} All Rights Reserved. </Text>
           {this.state.searching ? <ActivityIndicator size='large' color='#ff8101' /> : null}
         </View>
       </View>
