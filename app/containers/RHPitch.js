@@ -49,121 +49,121 @@ class RHPitch extends Component {
   //      return Object.keys(this.props.searchedHittersInsights).map(key => this.props.searchedHittersInsights[key])
   // }
 
-  hitterInsights() {
-
-    // const url = `https://mlb-player-api.cfapps.io/player/${this.props.navigationParams.id}/insight`;
-        const player = this.props.navigationParams.id
-        console.log(player)
-        // const jsonData = Api.get(`/player/457759/insight`)
-
-        // var jsonData = {"leftyFindings":["Based on the last 90 days' worth of pitches against this batter, L-handed pitchers have a 52% success rate.","Throw a four-seam fastball down the middle for a success rate of 77%.","Throw a sinker to the top left for a success rate of 75%.","Throw a four-seam fastball to the top left for a success rate of 75%.","Throw a sinker center left for a success rate of 71%.","Throw a four-seam fastball to the bottom left for a success rate of 71%."],"rightyFindings":["Based on the last 90 days' worth of pitches against this batter, R-handed pitchers have a 52% success rate.","Throw a four-seam fastball to the bottom left for a success rate of 79%.","Throw a four-seam fastball bottom center for a success rate of 78%.","Throw a sinker center left for a success rate of 77%.","Throw a change-up center right for a success rate of 76%.","Throw a four-seam fastball down the middle for a success rate of 75%."]}
-
-        // var findings = jsonData.leftyFindings
-
-        // const url = Object.keys(Api.get(`/player/457759/insight`)).map(key => [key]);
-        var url = fetch('https://mlb-player-api.cfapps.io/player/514888/insight').then(resp => {
-          let json = resp.json();
-          if (resp.ok) {
-            //console.log(json)
-            return json
-          }
-          return json.then(err => {throw err});
-
-        }).then((data) => {
-
-        //console.log(JSON.stringify(data.rightyFindings));
-
-         //return JSON.stringify(data)
-         var findings = Object.assign(data.rightyFindings)
-
-         console.log(findings)
-
-         const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-         this.state = {
-           dataSource: ds.cloneWithRows(data.rightyFindings),
-         };
-
-       });
-
-       // return (
-       //   <View style={{width:window.width-10 }}>
-       //   <ListView
-       //     dataSource={this.state.dataSource}
-       //     renderRow={(rowData) =>
-       //     <View style={{flexDirection:'row'}}>
-       //     <View style={{flex:.09}}>
-       //     <Image source={require('../images/fireants-nw.png')} style={styles.info} />
-       //     </View>
-       //     <View style={{flex:.91}}>
-       //     <Text style={{padding:2, color:'#fff'}}>
-       //     {rowData}
-       //     </Text>
-       //     </View>
-       //     </View>
-       //   }
-       //   />
-       //   </View>
-       // );
-
-      //   var findings = Object.assign(url)
-      //
-      //   console.log(findings)
-      //
-      //   const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-      //   this.state = {
-      //     dataSource: ds.cloneWithRows(findings),
-      //   };
-      //   return (
-      //     <View style={{width:window.width-10 }}>
-      //     <ListView
-      //       dataSource={this.state.dataSource}
-      //       renderRow={(rowData) =>
-      //       <View style={{flexDirection:'row'}}>
-      //       <View style={{flex:.09}}>
-      //       <Image source={require('../images/fireants-nw.png')} style={styles.info} />
-      //       </View>
-      //       <View style={{flex:.91}}>
-      //       <Text style={{padding:2, color:'#fff'}}>
-      //       {rowData}
-      //       </Text>
-      //       </View>
-      //       </View>
-      //     }
-      //     />
-      //     </View>
-      //   );
-    }
-    renderList() {
-     if (this.state.dataSource._cachedRowCount > 0) {
-       return (
-         <ListView
-           dataSource={this.state.dataSource}
-           renderRow={(rowData) =>
-           <View style={{flexDirection:'row'}}>
-           <View style={{flex:.09}}>
-           <Image source={require('../images/fireants-nw.png')} style={styles.info} />
-           </View>
-           <View style={{flex:.91}}>
-           <Text style={{padding:2, color:'#fff'}}>
-           {rowData}
-           </Text>
-           </View>
-           </View>
-         }
-         />
-       );
-     }
-   };
+  // hitterInsights() {
+  //
+  //   // const url = `https://mlb-player-api.cfapps.io/player/${this.props.navigationParams.id}/insight`;
+  //       const player = this.props.navigationParams.id
+  //       console.log(player)
+  //       // const jsonData = Api.get(`/player/457759/insight`)
+  //
+  //       // var jsonData = {"leftyFindings":["Based on the last 90 days' worth of pitches against this batter, L-handed pitchers have a 52% success rate.","Throw a four-seam fastball down the middle for a success rate of 77%.","Throw a sinker to the top left for a success rate of 75%.","Throw a four-seam fastball to the top left for a success rate of 75%.","Throw a sinker center left for a success rate of 71%.","Throw a four-seam fastball to the bottom left for a success rate of 71%."],"rightyFindings":["Based on the last 90 days' worth of pitches against this batter, R-handed pitchers have a 52% success rate.","Throw a four-seam fastball to the bottom left for a success rate of 79%.","Throw a four-seam fastball bottom center for a success rate of 78%.","Throw a sinker center left for a success rate of 77%.","Throw a change-up center right for a success rate of 76%.","Throw a four-seam fastball down the middle for a success rate of 75%."]}
+  //
+  //       // var findings = jsonData.leftyFindings
+  //
+  //       // const url = Object.keys(Api.get(`/player/457759/insight`)).map(key => [key]);
+  //       var url = fetch('https://mlb-player-api.cfapps.io/player/514888/insight').then(resp => {
+  //         let json = resp.json();
+  //         if (resp.ok) {
+  //           //console.log(json)
+  //           return json
+  //         }
+  //         return json.then(err => {throw err});
+  //
+  //       }).then((data) => {
+  //
+  //       //console.log(JSON.stringify(data.rightyFindings));
+  //
+  //        //return JSON.stringify(data)
+  //        var findings = Object.assign(data.rightyFindings)
+  //
+  //        console.log(findings)
+  //
+  //        const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+  //        this.state = {
+  //          dataSource: ds.cloneWithRows(data.rightyFindings),
+  //        };
+  //
+  //      });
+  //
+  //      // return (
+  //      //   <View style={{width:window.width-10 }}>
+  //      //   <ListView
+  //      //     dataSource={this.state.dataSource}
+  //      //     renderRow={(rowData) =>
+  //      //     <View style={{flexDirection:'row'}}>
+  //      //     <View style={{flex:.09}}>
+  //      //     <Image source={require('../images/fireants-nw.png')} style={styles.info} />
+  //      //     </View>
+  //      //     <View style={{flex:.91}}>
+  //      //     <Text style={{padding:2, color:'#fff'}}>
+  //      //     {rowData}
+  //      //     </Text>
+  //      //     </View>
+  //      //     </View>
+  //      //   }
+  //      //   />
+  //      //   </View>
+  //      // );
+  //
+  //     //   var findings = Object.assign(url)
+  //     //
+  //     //   console.log(findings)
+  //     //
+  //     //   const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+  //     //   this.state = {
+  //     //     dataSource: ds.cloneWithRows(findings),
+  //     //   };
+  //     //   return (
+  //     //     <View style={{width:window.width-10 }}>
+  //     //     <ListView
+  //     //       dataSource={this.state.dataSource}
+  //     //       renderRow={(rowData) =>
+  //     //       <View style={{flexDirection:'row'}}>
+  //     //       <View style={{flex:.09}}>
+  //     //       <Image source={require('../images/fireants-nw.png')} style={styles.info} />
+  //     //       </View>
+  //     //       <View style={{flex:.91}}>
+  //     //       <Text style={{padding:2, color:'#fff'}}>
+  //     //       {rowData}
+  //     //       </Text>
+  //     //       </View>
+  //     //       </View>
+  //     //     }
+  //     //     />
+  //     //     </View>
+  //     //   );
+  //   }
+   //  renderList() {
+   //   if (this.state.dataSource._cachedRowCount > 0) {
+   //     return (
+   //       <ListView
+   //         dataSource={this.state.dataSource}
+   //         renderRow={(rowData) =>
+   //         <View style={{flexDirection:'row'}}>
+   //         <View style={{flex:.09}}>
+   //         <Image source={require('../images/fireants-nw.png')} style={styles.info} />
+   //         </View>
+   //         <View style={{flex:.91}}>
+   //         <Text style={{padding:2, color:'#fff'}}>
+   //         {rowData}
+   //         </Text>
+   //         </View>
+   //         </View>
+   //       }
+   //       />
+   //     );
+   //   }
+   // };
   render () {
     const hitter = this.hitter();
-    const hitterInsights = this.hitterInsights();
+    // const hitterInsights = this.hitterInsights();
 
     if (!hitter) { return null }
     //console.log (`HERE: `+JSON.stringify(hitter))
     console.log(this.hitter())
-    console.log(this.hitterInsights())
+    // console.log(this.hitterInsights())
     //console.log (`HERE: `+hitter.mlbid)
-    console.log(this.renderList())
+    // console.log(this.renderList())
     return (
       <View style = {styles.container}>
       <View style={{flexDirection:'row'}}>
@@ -179,7 +179,7 @@ class RHPitch extends Component {
         <View style={{width: window.width}}>
         <Text style={{color:'#ff8e1b'}}>Fire Ants Machine Learning Data:</Text>
         <View style={{width:window.width-10 }}>
-        {this.renderList()}
+
         </View>
         </View>
 

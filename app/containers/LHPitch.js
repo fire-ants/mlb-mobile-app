@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import ReactNative from 'react-native'
+import React, { Component } from 'react';
+import ReactNative from 'react-native';
+import FlatList from 'react-native';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../actions';
 import { bindActionCreators } from 'redux';
@@ -33,75 +34,37 @@ class LHPitch extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      order: 1
+      order: 1,
+      data: []
       //index: 6
        }
   }
+
+  componentWillMount() {
+    this.fetchData();
+
+  }
+
 
   hitter() {
     return this.props.searchedHitters[this.props.navigationParams.id] || null;
   }
 
-  hitterInsights() {
+  fetchData = async () => {
+    const response = await fetch("https://mlb-player-api.cfapps.io/player/519317/insight");
+    const json = await response.json();
+    this.setState({data: json.leftyFindings});
 
-      // const url = `https://mlb-player-api.cfapps.io/player/${this.props.navigationParams.id}/insight`;
-          const player = this.props.navigationParams.id
-          console.log(player)
-          // const jsonData = Api.get(`/player/457759/insight`)
+  };
 
-          var jsonData = {"leftyFindings":["Based on the last 90 days' worth of pitches against this batter, L-handed pitchers have a 52% success rate.","Throw a four-seam fastball down the middle for a success rate of 77%.","Throw a sinker to the top left for a success rate of 75%.","Throw a four-seam fastball to the top left for a success rate of 75%.","Throw a sinker center left for a success rate of 71%.","Throw a four-seam fastball to the bottom left for a success rate of 71%."],"rightyFindings":["Based on the last 90 days' worth of pitches against this batter, R-handed pitchers have a 52% success rate.","Throw a four-seam fastball to the bottom left for a success rate of 79%.","Throw a four-seam fastball bottom center for a success rate of 78%.","Throw a sinker center left for a success rate of 77%.","Throw a change-up center right for a success rate of 76%.","Throw a four-seam fastball down the middle for a success rate of 75%."]}
-
-          // const url = Object.keys(Api.get(`/player/457759/insight`)).map(key => [key]);
-          // const url = fetch('https://mlb-player-api.cfapps.io/player/519317/insight').then(resp => {
-          //   let json = resp.json();
-          //   if (resp.ok) {
-          //     return json
-          //   }
-          //   return json.then(err => {throw err});
-          //
-          // }).then( json => json );
-          //
-          // const findings = Object.assign(url)
-          // console.log(findings)
-         // console.log(url)
-
-          var findings = jsonData.leftyFindings
-          console.log(findings)
-
-          const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
-          this.state = {
-            dataSource: ds.cloneWithRows(findings),
-          };
-          return (
-            <View style={{width:window.width-10 }}>
-            <ListView
-              dataSource={this.state.dataSource}
-              renderRow={(rowData) =>
-              <View style={{flexDirection:'row'}}>
-              <View style={{flex:.09}}>
-              <Image source={require('../images/fireants-nw.png')} style={styles.info} />
-              </View>
-              <View style={{flex:.91}}>
-              <Text style={{padding:2, color:'#fff'}}>
-              {rowData}
-              </Text>
-              </View>
-              </View>
-            }
-            />
-            </View>
-          );
-        }
 
   render () {
     const hitter = this.hitter();
-    const hitterInsights = this.hitterInsights();
+    // const hitterInsights = this.hitterInsights();
 
     if (!hitter) { return null }
-    //console.log (`HERE: `+JSON.stringify(hitter))
-    console.log(this.hitter())
-    console.log(this.hitterInsights())
-    //console.log (`HERE: `+hitter.mlbid)
+    console.log(this.state.data)
+
     return (
       <View style = {styles.container}>
       <View style={{flexDirection:'row'}}>
@@ -116,7 +79,14 @@ class LHPitch extends Component {
       </View>
         <View style={{width: window.width}}>
         <Text style={{color:'#ff8e1b'}}>Fire Ants Machine Learning Data:</Text>
-        {hitterInsights}
+
+        <Text style={{color:'#fff'}}>{this.state.data}</Text>
+
+        <View style={{width:window.width-10 }}>
+
+
+        </View>
+
         </View>
 
         <View style={styles.child}>

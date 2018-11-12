@@ -1,4 +1,4 @@
-package com.pitchersfriendfa;
+package com.pitchersfriend;
 
 import android.app.Application;
 
