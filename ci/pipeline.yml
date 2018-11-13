@@ -6,18 +6,7 @@ jobs:
     - get: mobile-repo
       trigger: true
     - task: npm-install
-      config:
-        platform: linux
-        image_resource:
-          type: docker-image
-          source:
-              repository: node
-        inputs:
-        - name: mobile-repo
-        run:
-          path: mobile-repo/ci/tasks/install.sh
-        outputs:
-          - name: npm-resource-container
+      file: mobile-repo/ci/tasks/install.yml
     - task: assemble-app
       file: mobile-repo/ci/tasks/assemble.yml
 

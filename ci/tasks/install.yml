@@ -1,0 +1,24 @@
+---
+
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+      repository: node
+inputs:
+- name: mobile-repo
+run:
+  path: /bin/bash
+  args:
+    - -euxc
+    - >-
+      pushd mobile-repo
+        npm install
+      popd
+
+      cp -R mobile-repo/* npm-resource-container/
+
+      ls -ltra npm-resource-container/node_modules
+
+outputs:
+  - name: npm-resource-container
