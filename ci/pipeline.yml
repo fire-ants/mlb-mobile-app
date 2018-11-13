@@ -2,6 +2,7 @@
 jobs:
   - name: build-mobile-apk
     plan:
+    - get: android-sdk-linux
     - get: mobile-repo
       trigger: true
     - task: assemble-app
