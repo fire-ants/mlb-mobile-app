@@ -1,0 +1,25 @@
+---
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: xaethos/android-build
+    tag: no-sdk
+
+
+inputs:
+  - name: android-sdk-linux
+  - name: git-repo
+
+outputs:
+  - name: build-output
+
+run:
+    path: sh
+    args:
+      - -euxc
+      - >-
+        TERM=screen-256color
+        ANDROID_HOME="$PWD/android-sdk-linux"
+        git-repo/gradlew --project-dir=git-repo :app:assembleDebug
