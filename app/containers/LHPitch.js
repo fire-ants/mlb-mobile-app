@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactNative from 'react-native';
-import FlatList from 'react-native';
+import { FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import { ActionCreators } from '../actions';
 import { bindActionCreators } from 'redux';
@@ -35,7 +35,7 @@ class LHPitch extends Component {
     super(props)
     this.state = {
       order: 1,
-      data: []
+      data: [],
       //index: 6
        }
   }
@@ -51,16 +51,19 @@ class LHPitch extends Component {
   }
 
   fetchData = async () => {
-    const response = await fetch("https://mlb-player-api.cfapps.io/player/519317/insight");
+
+    const hitterInsight = this.props.navigationParams.id
+    const response = await fetch(`https://mlb-api.cfapps.io/player/${hitterInsight}/insight`);
     const json = await response.json();
-    this.setState({data: json.leftyFindings});
+    this.setState({data: json.left_hand_pitcher_findings});
 
   };
-
 
   render () {
     const hitter = this.hitter();
     // const hitterInsights = this.hitterInsights();
+
+    console.log(this.props.navigationParams.id)
 
     if (!hitter) { return null }
     console.log(this.state.data)
@@ -80,13 +83,23 @@ class LHPitch extends Component {
         <View style={{width: window.width}}>
         <Text style={{color:'#ff8e1b'}}>Fire Ants Machine Learning Data:</Text>
 
-        <Text style={{color:'#fff'}}>{this.state.data}</Text>
-
-        <View style={{width:window.width-10 }}>
-
-
+        <View style={styles.container}>
+        <FlatList
+        data={this.state.data}
+        keyExtractor={(x,i) => i}
+        renderItem={({item}) =>
+        <View style={{flexDirection:'row'}}>
+          <View style={{flex: .09}}><Image source={require('../images/fireants-nw.png')} style={styles.info} /></View>
+          <View style={{flex: .91}}>
+          <Text style={{color:'#fff'}}>
+          {`${item}`}
+          </Text>
+          </View>
+        </View>}
+          />
         </View>
-
+        <View style={{width:window.width-10 }}>
+        </View>
         </View>
 
         <View style={styles.child}>
