@@ -22,4 +22,4 @@ run:
       - >-
         TERM=screen-256color
         ANDROID_HOME="$PWD/android-sdk-linux"
-        git-repo/gradlew --project-dir=git-repo :app:assembleDebug
+        mobile-repo/gradlew --project-dir=mobile-repo :app:assembleDebug
