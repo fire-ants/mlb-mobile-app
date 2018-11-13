@@ -22,5 +22,5 @@ run:
       - >-
         export TERM=screen-256color
         export ANDROID_HOME="$PWD/android-sdk-linux"
-        cp npm-resource-container/license $ANDROID_HOME/
-        npm-resource-container/android/gradlew --project-dir=npm-resource-container/android :assembleDebug --stacktrace
+        cp -R npm-resource-container/licenses $ANDROID_HOME/
+        npm-resource-container/android/gradlew --project-dir=npm-resource-container/android assembleDebug --stacktrace
