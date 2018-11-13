@@ -5,17 +5,17 @@ jobs:
     - get: android-sdk-linux
     - get: mobile-repo
       trigger: true
-    - task: npm-install
-      config:
-        platform: linux
-        image_resource:
-          type: docker-image
-          source:
-              repository: node
-        inputs:
-        - name: mobile-repo
-        run:
-          path: mobile-repo/ci/tasks/install.sh
+    # - task: npm-install
+    #   config:
+    #     platform: linux
+    #     image_resource:
+    #       type: docker-image
+    #       source:
+    #           repository: node
+    #     inputs:
+    #     - name: mobile-repo
+    #     run:
+    #       path: mobile-repo/ci/tasks/install.sh
     - task: assemble-app
       file: mobile-repo/ci/tasks/assemble.yml
 

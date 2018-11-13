@@ -22,4 +22,5 @@ run:
       - >-
         TERM=screen-256color
         ANDROID_HOME="$PWD/android-sdk-linux"
+        npm install
         mobile-repo/android/gradlew --project-dir=mobile-repo/android :assembleDebug --stacktrace
