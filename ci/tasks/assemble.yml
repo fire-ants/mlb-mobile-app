@@ -10,7 +10,7 @@ image_resource:
 
 inputs:
   - name: android-sdk-linux
-  - name: mobile-repo
+  - name: npm-resource-container
 
 outputs:
   - name: build-output
@@ -22,5 +22,4 @@ run:
       - >-
         TERM=screen-256color
         ANDROID_HOME="$PWD/android-sdk-linux"
-        npm install
-        mobile-repo/android/gradlew --project-dir=mobile-repo/android :assembleDebug --stacktrace
+        npm-resource-container/android/gradlew --project-dir=npm-resource-container/android :assembleDebug --stacktrace
