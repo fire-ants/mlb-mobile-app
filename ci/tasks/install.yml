@@ -7,18 +7,21 @@ image_resource:
       repository: node
 inputs:
 - name: mobile-repo
-run:
-  path: /bin/bash
-  args:
-    - -euxc
-    - >-
-      pushd mobile-repo
-        npm install
-      popd
-
-      cp -R mobile-repo/* npm-resource-container/
-
-      ls -ltra npm-resource-container/node_modules
 
 outputs:
   - name: npm-resource-container
+  # resource contains contents of mobile-repo + node_modules and is passed into assemble.yml
+
+run:
+  path: mobile-repo/ci/tasks/install.sh
+  # path: /bin/bash
+  # args:
+  #   - -euxc
+  #   - >-
+  #     pushd mobile-repo
+  #       npm install
+  #     popd
+  #
+  #     cp -R mobile-repo/* npm-resource-container/
+  #
+  #     ls -ltra npm-resource-container/node_modules
