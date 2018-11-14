@@ -24,4 +24,4 @@ run:
       export ANDROID_HOME="$PWD/android-sdk-linux"
       cp -R npm-resource-container/licenses $ANDROID_HOME/
       npm-resource-container/android/gradlew --project-dir=npm-resource-container/android assembleDebug --stacktrace
-      ls -l npm-resource-container/android/*
+      ls -l npm-resource-container/android/app/build/*
