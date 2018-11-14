@@ -101,7 +101,6 @@ class LHPitch extends Component {
         <View style={{width:window.width-10 }}>
         </View>
         </View>
-
         <View style={styles.child}>
         <Text style = {styles.text}>FF</Text>
         <ZoomImage
@@ -196,7 +195,7 @@ const styles = StyleSheet.create({
     },
     hmImage: {
       width: imageWidth,
-      height: imageHeight
+      height: imageHeight,
     },
     hvalheader: {
       color:'#000',

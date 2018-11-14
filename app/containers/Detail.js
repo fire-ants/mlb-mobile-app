@@ -144,11 +144,11 @@ class Detail extends Component {
               <Text style={appStyle.resultText} >{hitter.firstName} {hitter.lastName} | {hitter.position} </Text>
             </View>
             <View style={styles.detailb2}>
-              <Text style={appStyle.resultText}>Team: {hitter.team} </Text>
-              <Text style={appStyle.resultText}>Birthdate: {hitter.birthDate.slice(0, -14)} </Text>
-              <Text style={appStyle.resultText}>Height: {hitter.height} </Text>
-              <Text style={appStyle.resultText}>Weight: {hitter.weight} </Text>
-              <Text style={appStyle.resultText}>Bats: {hitter.bats} </Text>
+              <Text style={appStyle.resultTextD}>Team: {hitter.team} </Text>
+              <Text style={appStyle.resultTextD}>Birthdate: {hitter.birthDate.slice(0, -14)} </Text>
+              <Text style={appStyle.resultTextD}>Height: {hitter.height} </Text>
+              <Text style={appStyle.resultTextD}>Weight: {hitter.weight} </Text>
+              <Text style={appStyle.resultTextD}>Bats: {hitter.bats} </Text>
             </View>
           </View>
           <View style={styles.contentContainer}>
