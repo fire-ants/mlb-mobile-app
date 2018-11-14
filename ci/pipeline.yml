@@ -9,6 +9,9 @@ jobs:
       file: mobile-repo/ci/tasks/install.yml
     - task: assemble-app
       file: mobile-repo/ci/tasks/assemble.yml
+    - put: deploy-apk-to-s3
+      params:
+          file: build-output/app-debug.apk
 
 resource_types:
   - name: android-sdk
@@ -29,3 +32,9 @@ resources:
       uri: {{GIT_REPO}}
       branch: {{GIT_BRANCH}}
       private_key: {{GIT_PRIVATE_KEY}}
+  - name: deploy-apk-to-s3
+    type: s3
+    source:
+      bucket: {{AWS_S3_BUCKET_NAME}}
+      access_key_id: {{AWS_ACCESS_KEY_ID}}
+      secret_access_key: {{AWS_SECRET_ACCESS_KEY}}
