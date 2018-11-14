@@ -16,7 +16,7 @@ outputs:
   - name: build-output
 
 run:
-    path: sh
+    path: /bin/bash
     args:
       - -euxc
       - >-
