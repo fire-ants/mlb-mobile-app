@@ -1,0 +1,27 @@
+---
+
+platform: linux
+image_resource:
+  type: docker-image
+  source:
+      repository: node
+inputs:
+- name: mobile-repo
+
+outputs:
+  - name: npm-resource-container
+  # resource contains contents of mobile-repo + node_modules and is passed into assemble.yml
+
+run:
+  path: mobile-repo/ci/tasks/install.sh
+  # path: /bin/bash
+  # args:
+  #   - -euxc
+  #   - >-
+  #     pushd mobile-repo
+  #       npm install
+  #     popd
+  #
+  #     cp -R mobile-repo/* npm-resource-container/
+  #
+  #     ls -ltra npm-resource-container/node_modules

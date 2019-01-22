@@ -98,19 +98,21 @@ const styles = StyleSheet.create({
 		//marginRight:5
 	},
 	detailBox: {
-		flexDirection: 'row'
+		flexDirection: 'row',
+		backgroundColor: '#ff8101'
 	},
 	detailb1: {
 		flex:1,
-		backgroundColor: '#000',
+		backgroundColor: '#ff8101',
 		marginTop:4,
 		//width:window.width/3
 	},
 	detailb2: {
 		flex:1,
-		backgroundColor: '#000',
-		marginTop: 25,
-		marginLeft: -50
+		backgroundColor: '#ff8101',
+		marginTop: 4,
+		marginLeft: -115,
+		marginBottom: 5
 	}
 
 });

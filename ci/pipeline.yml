@@ -1,0 +1,41 @@
+---
+jobs:
+  - name: build-mobile-apk
+    plan:
+    - get: android-sdk-linux
+    - get: mobile-repo
+      trigger: true
+    - task: npm-install
+      file: mobile-repo/ci/tasks/install.yml
+    - task: assemble-app
+      file: mobile-repo/ci/tasks/assemble.yml
+    - put: deploy-apk-to-s3
+      params:
+          file: build-output/app-debug.apk
+
+resource_types:
+  - name: android-sdk
+    type: docker-image
+    source: {repository: xaethos/android-sdk-resource}
+
+resources:
+  - name: android-sdk-linux
+    type: android-sdk
+    source:
+      components:
+        - android-23
+        - build-tools-23.0.2
+        - extra-android-m2repository
+  - name: mobile-repo
+    type: git
+    source:
+      uri: {{GIT_REPO}}
+      branch: {{GIT_BRANCH}}
+      private_key: {{GIT_PRIVATE_KEY}}
+  - name: deploy-apk-to-s3
+    type: s3
+    source:
+      bucket: {{AWS_S3_BUCKET_NAME}}
+      versioned_file: app-debug.apk
+      access_key_id: {{AWS_ACCESS_KEY_ID}}
+      secret_access_key: {{AWS_SECRET_ACCESS_KEY}}

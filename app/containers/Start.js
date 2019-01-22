@@ -140,7 +140,7 @@ const imageHeight = window.width/3;
              isOpen={this.state.isOpen}
              onChange={isOpen => this.updateMenuState(isOpen)}
            >
-           <Image source={require('../images/black-woven-background.jpg')} style={styles.scene}>
+           <Image source={require('../images/gabpark.jpg')} style={styles.scene}>
            {/*}<View style={styles.searchSection}>
            <TextInput style={styles.searchinput}
             returnKeyType="search"
@@ -213,194 +213,202 @@ const imageHeight = window.width/3;
     }
 }
 
-        const styles = StyleSheet.create({
-          scene: {
-              flex: 1,
-            },
-            searchSection: {
-              height: 45,
-              flexDirection: 'row',
-              borderBottomWidth: 1,
-              width: window.width,
-              opacity: 0
-            },
-            container: {
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            width: window.width,
-           justifyContent: 'center',
-           alignItems: 'flex-end'
-          },
-          child: {
-            alignItems: 'flex-start',
-            marginTop: 5,
-            marginLeft: 5,
-            padding: 10
-          },
-          image: {
-            width: imageWidth,
-            height: imageHeight
-          },
-          text: {
-            flex: 1,
-            width: imageWidth,
-            backgroundColor: '#d3d3d3',
-            color: '#000',
-            padding: 5,
-            justifyContent: 'center',
-            fontWeight: 'bold',
-            alignItems: 'center',
-            textAlign: 'center',
-            borderRightColor: '#ff8101',
-            borderLeftColor: '#ff8101',
-            borderTopWidth: 2,
-            borderTopColor: '#ff8101',
-            //borderLeftWidth: 1,
-            //borderRightWidth: 1,
-          },
-          teamtext: {
-            flex: 1,
-            width: imageWidth,
-            //backgroundColor: '#ff8101',
-            backgroundColor: '#d3d3d3',
-            color: '#000',
-            padding: 5,
-            marginTop: -8,
-            justifyContent: 'center',
-            fontWeight: 'bold',
-            height: 30,
-            alignItems: 'center',
-            textAlign: 'center',
-            borderRightColor: '#ff8101',
-            borderLeftColor: '#ff8101',
-            //borderLeftWidth: 1,
-            //borderRightWidth: 1,
-            //borderBottomWidth: 1,
-            borderBottomColor: '#ff8101'
-          },
-          searchinput: {
-            backgroundColor: '#fff',
-            flex: 0.6,
-            padding: 5
-          },
-          searchbutton: {
-            backgroundColor: '#ff8101',
-            color: '#000',
-            flex: 0.4,
-            padding: 10
-          },
-          searching: {
-            width: window.width,
-            backgroundColor: '#ff8101',
-            color: '#fff',
-            padding: 5
-          },
-          topBarText: {
-            //color:'#ff8101',
-            color:'#fff',
-            fontWeight: 'bold',
-            backgroundColor: '#000',
-            height: 20,
-            width: window.width,
-            paddingLeft: 10,
-          },
-          activityindicator: {
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: 400
-            // position: 'absolute',
-            // //marginTop: 157,
-            // height: 50
-          },
-          topHeaderText: {
-            color:'#fff',
-            fontSize: 20,
-            fontWeight: 'bold',
-            backgroundColor: '#ff8101',
-            height:50,
-            //paddingLeft: 15,
-            paddingTop: 10,
-            paddingRight: 5,
-            //width: window.width,
-            textAlign: 'left'
-          },
-        info: {
-          width: 35,
-          height: 35,
-          //marginLeft: 100,
-          marginLeft: 10,
-          marginTop: 8
-        },
-        imageBorder: {
-        },
-        dcontainer: {
-          flex:1
-        },
-        main: {
-          position: 'absolute',
-          backgroundColor: '#000'
-        },
-        head: {
-          height: 60,
-          marginBottom: 200,
-          justifyContent: 'center',
-          alignItems: 'center',
-          alignSelf: 'stretch',
-          backgroundColor: '#6a0d45'
-        },
-        content: {
-          flex: 1,
-          alignItems: 'center',
-          alignSelf: 'stretch',
-          backgroundColor: '#e3b8cb'
-        },
-        drawerContent: {
-          flex: 1,
-          justifyContent: 'center',
-          alignItems: 'center'
-        },
-        leftTop: {
-          flex: 1,
-          justifyContent: 'space-around',
-          alignItems: 'stretch',
-          alignSelf: 'stretch',
-          backgroundColor: '#8ad8dd'
-        },
-        leftBottom: {
-          flex: 2,
-          justifyContent: 'space-around',
-          alignItems: 'center',
-          alignSelf: 'stretch',
-          backgroundColor: '#f0f0f0'
-        },
-        leftDrawer: {
-          borderRightWidth: 4,
-          borderRightColor: '#5b585a'
-        },
-        rightDrawer: {
-          borderLeftWidth: 4,
-          borderLeftColor: '#5b585a'
-        },
-        btn1: {
-          marginTop: 10,
-          padding: 10,
-          overflow: 'hidden',
-          borderRadius: 5,
-          backgroundColor: '#f06355'
-        },
-        btn2: {
-          marginTop: 10,
-          padding: 10,
-          overflow: 'hidden',
-          borderRadius: 5,
-          backgroundColor: '#37b9d5'
-        },
-        btnText: {
-          fontSize: 14,
-          color: '#f0f0f0'
-        }
-        });
+const styles = StyleSheet.create({
+    scene: {
+      flex: 1,
+    },
+    searchSection: {
+      height: 45,
+      flexDirection: 'row',
+      borderBottomWidth: 1,
+      width: window.width,
+      opacity: 0
+    },
+    container: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: window.width,
+    justifyContent: 'center',
+    alignItems: 'flex-end'
+    },
+    child: {
+      alignItems: 'flex-start',
+      marginTop: 5,
+      marginLeft: 5,
+      padding: 10
+    },
+    image: {
+      width: imageWidth-20,
+      height: imageHeight-10,
+      marginLeft: 10,
+      borderRadius: 10
+    },
+    text: {
+      flex: 1,
+      width: imageWidth,
+      //backgroundColor: '#d3d3d3',
+      backgroundColor: '#00000095',
+      color: '#fff',
+      padding: 5,
+      paddingBottom: -7,
+      justifyContent: 'center',
+      fontWeight: 'bold',
+      alignItems: 'center',
+      textAlign: 'center',
+      borderRightColor: '#ff8101',
+      borderLeftColor: '#ff8101',
+      borderTopWidth: 2,
+      borderTopColor: '#ff8101',
+      marginTop: 5
+      //borderLeftWidth: 1,
+      //borderRightWidth: 1,
+    },
+    teamtext: {
+      flex: 1,
+      width: imageWidth,
+      //backgroundColor: '#ff8101',
+      //backgroundColor: '#d3d3d3',
+      backgroundColor: '#00000095',
+      color: '#fff',
+      padding: 5,
+      //marginTop: -5,
+      justifyContent: 'center',
+      fontWeight: 'bold',
+      height: 30,
+      alignItems: 'center',
+      textAlign: 'center',
+      borderRightColor: '#ff8101',
+      borderLeftColor: '#ff8101',
+      borderBottomWidth: 2,
+      //borderLeftWidth: 1,
+      //borderRightWidth: 1,
+      //borderBottomWidth: 1,
+      borderBottomColor: '#ff8101'
+    },
+    searchinput: {
+      backgroundColor: '#fff',
+      flex: 0.6,
+      padding: 5
+    },
+    searchbutton: {
+      backgroundColor: '#ff8101',
+      color: '#000',
+      flex: 0.4,
+      padding: 10
+    },
+    searching: {
+      width: window.width,
+      backgroundColor: '#ff8101',
+      color: '#fff',
+      padding: 5
+    },
+    topBarText: {
+      //color:'#ff8101',
+      color:'#fff',
+      fontWeight: 'bold',
+      backgroundColor: '#00000080',
+      height: 25,
+      width: window.width,
+      paddingLeft: 10,
+      paddingTop: 5
+    },
+    activityindicator: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginTop: 400
+      // position: 'absolute',
+      // //marginTop: 157,
+      // height: 50
+    },
+    topHeaderText: {
+      color:'#fff',
+      fontSize: 20,
+      fontWeight: 'bold',
+      backgroundColor: '#ff8101',
+      height:50,
+      //paddingLeft: 15,
+      paddingTop: 10,
+      paddingRight: 5,
+      //width: window.width,
+      textAlign: 'left'
+    },
+    info: {
+      width: 35,
+      height: 35,
+      //marginLeft: 100,
+      marginLeft: 10,
+      marginTop: 8
+    },
+    imageBorder: {
+    },
+    dcontainer: {
+      flex:1
+    },
+    main: {
+      position: 'absolute',
+      backgroundColor: '#000'
+    },
+    head: {
+      height: 60,
+      marginBottom: 200,
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+      backgroundColor: '#6a0d45'
+    },
+    content: {
+      flex: 1,
+      alignItems: 'center',
+      alignSelf: 'stretch',
+      backgroundColor: '#e3b8cb'
+    },
+    drawerContent: {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+    leftTop: {
+      flex: 1,
+      justifyContent: 'space-around',
+      alignItems: 'stretch',
+      alignSelf: 'stretch',
+      backgroundColor: '#8ad8dd'
+    },
+    leftBottom: {
+      flex: 2,
+      justifyContent: 'space-around',
+      alignItems: 'center',
+      alignSelf: 'stretch',
+      backgroundColor: '#f0f0f0'
+    },
+    leftDrawer: {
+      borderRightWidth: 4,
+      borderRightColor: '#5b585a'
+    },
+    rightDrawer: {
+      borderLeftWidth: 4,
+      borderLeftColor: '#5b585a'
+    },
+    btn1: {
+      marginTop: 10,
+      padding: 10,
+      overflow: 'hidden',
+      borderRadius: 5,
+      backgroundColor: '#f06355'
+    },
+    btn2: {
+      marginTop: 10,
+      padding: 10,
+      overflow: 'hidden',
+      borderRadius: 5,
+      backgroundColor: '#37b9d5'
+    },
+    btnText: {
+      fontSize: 14,
+      color: '#f0f0f0'
+    }
+});
 
 function mapStateToProps(state) {
     return {
